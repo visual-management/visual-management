@@ -19,3 +19,16 @@ services:
       - network
     deploy:
       replicas: 1
+  front:
+    image: visual-management-front:latest
+    container_name: visual-management-front
+    ports:
+      - target: 80
+        published: 8080
+    networks:
+      - network
+    restart: on-failure
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
