@@ -1,0 +1,16 @@
+{
+  "name": "@visual-management/plugin-clock",
+  "version": "1.0.0",
+  "description": "Plugin to show a configurable clock",
+  "main": "./entry-point.js",
+  "license": "MIT",
+  "contributors": [
+    "Valentin Got <gotvalentin@gmail.com>",
+    "Olivier Le Lay <liollury@gmail.com>",
+    "Kevin Grandemange <kevin@kevingrandemange.net>"
+  ],
+  "repository": "https://github.com/visual-management/tree/master/plugins/visual-management-plugin-clock",
+  "peerDependencies": {
+    "vue": "^2.2.6"
+  }
+}
