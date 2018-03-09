@@ -30,6 +30,8 @@
       </grid-item>
     </grid-layout>
 
+    <title :config="{ title: 'This is a title!' }"></title>
+
     <ul class="mfb-component--br mfb-slidein" data-mfb-toggle="hover" data-mfb-state="closed" v-show="!editing">
       <li class="mfb-component__wrap">
         <a class="mfb-component__button--main">
