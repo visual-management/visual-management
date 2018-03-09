@@ -29,10 +29,16 @@ io.on('connection', (socket) => {
   socket.on('component.remove', (component) => componentController.removeOne(component));
 });
 
+const MONGO_HOST = process.env.MONGO_HOST || config.get('MONGODB.HOST') || 'localhost';
+const MONGO_PORT = process.env.MONGO_PORT || config.get('MONGODB.PORT') || 27017;
+const MONGO_DATABASE = process.env.MONGO_DATABASE || config.get('MONGODB.DATABASE') || 'db';
+const MONGO_USERNAME = process.env.MONGO_USERNAME || (config.has('MONGODB.USERNAME') && config.get('MONGODB.USERNAME')) || null;
+const MONGO_PASSWORD = process.env.MONGO_PASSWORD || (config.has('MONGODB.PASSWORD') && config.get('MONGODB.PASSWORD')) || null;
+
 // MongoDB
-let uri = `${config.get('MONGODB.HOST')}:${config.get('MONGODB.PORT')}/${config.get('MONGODB.DATABASE')}`;
-if (config.has('MONGODB.USERNAME') && config.has('MONGODB.PASSWORD')) {
-  uri = `${config.get('MONGODB.USERNAME')}:${config.get('MONGODB.PASSWORD')}@` + uri;
+let uri = `${MONGO_HOST}:${MONGO_PORT}/${MONGO_DATABASE}`;
+if (MONGO_USERNAME && MONGO_PASSWORD) {
+  uri = `${MONGO_USERNAME}:${MONGO_PASSWORD}@` + uri;
 }
 
 // Use native promises for Mongoose
