@@ -1,5 +1,11 @@
 <h1 align="center">Visual Management</h1>
 
+<p align="center">
+  <a href="https://visual-management.github.io/visual-management"><strong>Documentation</strong></a>
+</p>
+
+---
+
 # Deploy using Docker
 
 ### Build the images
