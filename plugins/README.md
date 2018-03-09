@@ -1,8 +1,8 @@
 ## Plugins
 
-* [Clock](/visual-management-clock/README.md)
-* [iFrame](/visual-management-iframe/README.md)
-* [iPMP](/visual-management-ipmp/README.md)
-* [Jenkins](/visual-management-jenkins/README.md)
-* [SonarQube](/visual-management-sonar/README.md)
-* [Title](/visual-management-title/README.md)
+* [Clock](/plugins/visual-management-plugin-clock/README.md)
+* [iFrame](/plugins/visual-management-plugin-iframe/README.md)
+* [iPMP](/plugins/visual-management-plugin-ipmp/README.md)
+* [Jenkins](/plugins/visual-management-plugin-jenkins/README.md)
+* [SonarQube](/plugins/visual-management-plugin-sonar/README.md)
+* [Title](/plugins/visual-management-plugin-title/README.md)
