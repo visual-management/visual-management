@@ -1,0 +1,17 @@
+{
+	"name": "visual-management",
+	"private": true,
+	"license": "MIT",
+	"contributors": [
+		"Valentin Got <gotvalentin@gmail.com>",
+		"Olivier Le Lay <liollury@gmail.com>",
+		"Kevin Grandemange <kevin@kevingrandemange.net>"
+	],
+	"engines": {
+		"node": ">= 7.0.0",
+		"npm": ">= 4.0.0"
+	},
+	"devDependencies": {
+		"lerna": "^2.9.0"
+	}
+}
