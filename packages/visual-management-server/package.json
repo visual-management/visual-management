@@ -1,0 +1,21 @@
+{
+  "name": "@visual-management/server",
+  "version": "1.0.0",
+  "description": "Small server for the visual management",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "contributors": [
+    "Olivier Le Lay",
+    "Valentin Got <gotvalentin@gmail.com>",
+    "Kevin Grandemange <kevin@kevingrandemange.net>"
+  ],
+  "repository": "https://github.com/visual-management/tree/master/packages/visual-management-server",
+  "dependencies": {
+    "config": "^1.25.1",
+    "mongoose": "^4.8.1",
+    "socket.io": "^1.7.2"
+  }
+}
