@@ -195,6 +195,10 @@
     /*pointer-events: none;*/
   }
 
+  .vue-resizable-handle {
+    z-index: 15;
+  }
+
   .not-editing > .vue-resizable-handle {
     display: none;
   }
