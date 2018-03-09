@@ -6,14 +6,11 @@ services:
   mongo:
     image: mongo:3.7.2
     container_name: visual-management-mongo
-    ports:
-      - target: 27017
-        published: 27017
     environment:
       MONGO_DATA_DIR: /data/db
     volumes:
       - type: bind
-        source: /opt/croix-rouge-portal/db
+        source: /opt/visual-management/db
         target: /data/db
     networks:
       - network
@@ -27,6 +24,25 @@ services:
         published: 8080
     networks:
       - network
+    restart: on-failure
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+  server:
+    image: visual-management-server:latest
+    container_name: visual-management-server
+    ports:
+      - target: 9090
+        published: 9090
+    environment:
+      MONGO_HOST: visual-management-mongo
+      MONGO_PORT: 27017
+      MONGO_DATABASE: visual-management
+    networks:
+      - network
+    depends_on:
+      - mongo
     restart: on-failure
     deploy:
       restart_policy:
