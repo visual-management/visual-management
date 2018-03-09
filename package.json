@@ -1,5 +1,6 @@
 {
 	"name": "visual-management",
+  "description": "Visual Management",
 	"private": true,
 	"license": "MIT",
 	"contributors": [
