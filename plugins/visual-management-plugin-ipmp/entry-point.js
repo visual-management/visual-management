@@ -4,7 +4,7 @@ import StatusList from './status-list/status-list.vue'
 export default {
   id         : 'ipmp',
   name       : 'iPMP',
-  description: `A set of components for iPMP`,
+  description: 'A set of components for iPMP',
   components : [
     {
       name         : 'Status',

@@ -3,7 +3,7 @@ import iframe from './iframe.vue'
 export default {
   id         : 'iframe',
   name       : 'iFrame',
-  description: `Show whatever url you want in an iFrame`,
+  description: 'Show whatever url you want in an iFrame',
   components : [
     {
       name         : 'iframe',

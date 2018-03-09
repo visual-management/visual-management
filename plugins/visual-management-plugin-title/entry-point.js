@@ -3,7 +3,7 @@ import Title from './title.vue'
 export default {
   id         : 'title',
   name       : 'Title',
-  description: `Show a title`,
+  description: 'Show a title',
   components : [
     {
       name         : 'Title',
