@@ -36,3 +36,23 @@ Then, just go to `http://localhost:8080`, and here it works.
 # Plugins
 
 All plugins are installed by default. The full list can be found [here](/plugins/README.md).
+
+# Development
+
+```sh
+# Launch a MongoDB database
+# e.g using Docker
+docker run \
+-p 27017:27017 \
+-v /opt/visual-management/db:/data/db \
+--env MONGO_DATA_DIR=/data/db \
+--name visual-management-mongo \
+mongo:3.7.2
+
+# Launch the front-end app
+npm start
+
+# Launch the server
+cd plugins/visual-management-server
+npm start
+```
