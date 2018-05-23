@@ -34,7 +34,13 @@ iPMP password.
 
 Update component info at this time interval.
 
-### projects
+### showCriticty
+
+`{none: boolean, minor: boolean, major: boolean, blocking: Blocking}`, defaults to `{none: false, minor: true, major: true, blocking: true}`
+
+Choose which criticity should be displayed.
+
+### projects²
 
 `Array<{id: number, name: string, ignoreTypes: Array<string>, ignoreStatuses: Array<string>}>`
 
