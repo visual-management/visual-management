@@ -70,11 +70,17 @@ export default {
         host          : '',
         username      : '',
         password      : '',
+        showCriticty  : {
+          none    : false,
+          minor   : true,
+          major   : true,
+          blocking: true
+        },
         projects      : [
           {
-            id  : 0,
-            name: '',
-            ignoreTypes: [],
+            id            : 0,
+            name          : '',
+            ignoreTypes   : [],
             ignoreStatuses: []
           }
         ],

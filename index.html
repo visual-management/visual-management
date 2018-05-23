@@ -281,7 +281,7 @@
                                 <h1 align="center" id="visual-management">Visual Management</h1>
 
 <p align="center">
-  <a href="https://visual-management.github.io/visual-management" target="_blank"><strong>Documentation</strong></a>
+  <a href="https://visual-management.github.io/visual-management/" target="_blank"><strong>Documentation</strong></a>
 </p>
 
 <hr>
@@ -304,6 +304,23 @@ docker build -t visual-management-server:latest .
 <p>Then, just go to <code>http://localhost:8080</code>, and here it works.</p>
 <h1 id="plugins">Plugins</h1>
 <p>All plugins are installed by default. The full list can be found <a href="plugins/">here</a>.</p>
+<h1 id="development">Development</h1>
+<pre><code class="lang-sh"><span class="hljs-comment"># Launch a MongoDB database</span>
+<span class="hljs-comment"># e.g using Docker</span>
+docker run \
+-p 27017:27017 \
+-v /opt/visual-management/db:/data/db \
+--env MONGO_DATA_DIR=/data/db \
+--name visual-management-mongo \
+mongo:3.7.2
+
+<span class="hljs-comment"># Launch the front-end app</span>
+npm start
+
+<span class="hljs-comment"># Launch the server</span>
+<span class="hljs-built_in">cd</span> plugins/visual-management-server
+npm start
+</code></pre>
 
                                 
                                 </section>
@@ -337,7 +354,7 @@ docker build -t visual-management-server:latest .
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Visual Management","level":"1.1","depth":1,"next":{"title":"Plugins","level":"1.2","depth":1,"path":"plugins/README.md","ref":"plugins/README.md","articles":[{"title":"Clock","level":"1.2.1","depth":2,"path":"plugins/visual-management-plugin-clock/README.md","ref":"plugins/visual-management-plugin-clock/README.md","articles":[]},{"title":"iFrame","level":"1.2.2","depth":2,"path":"plugins/visual-management-plugin-iframe/README.md","ref":"plugins/visual-management-plugin-iframe/README.md","articles":[]},{"title":"iPMP","level":"1.2.3","depth":2,"path":"plugins/visual-management-plugin-ipmp/README.md","ref":"plugins/visual-management-plugin-ipmp/README.md","articles":[{"title":"Status","level":"1.2.3.1","depth":3,"path":"plugins/visual-management-plugin-ipmp/status/README.md","ref":"plugins/visual-management-plugin-ipmp/status/README.md","articles":[]},{"title":"Status list","level":"1.2.3.2","depth":3,"path":"plugins/visual-management-plugin-ipmp/status-list/README.md","ref":"plugins/visual-management-plugin-ipmp/status-list/README.md","articles":[]}]},{"title":"Jenkins","level":"1.2.4","depth":2,"path":"plugins/visual-management-plugin-jenkins/README.md","ref":"plugins/visual-management-plugin-jenkins/README.md","articles":[]},{"title":"SonarQube","level":"1.2.5","depth":2,"path":"plugins/visual-management-plugin-sonar/README.md","ref":"plugins/visual-management-plugin-sonar/README.md","articles":[]},{"title":"Title","level":"1.2.6","depth":2,"path":"plugins/visual-management-plugin-title/README.md","ref":"plugins/visual-management-plugin-title/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","-sharing"],"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-03-09T15:04:38.505Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-09T15:08:23.635Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Visual Management","level":"1.1","depth":1,"next":{"title":"Plugins","level":"1.2","depth":1,"path":"plugins/README.md","ref":"plugins/README.md","articles":[{"title":"Clock","level":"1.2.1","depth":2,"path":"plugins/visual-management-plugin-clock/README.md","ref":"plugins/visual-management-plugin-clock/README.md","articles":[]},{"title":"iFrame","level":"1.2.2","depth":2,"path":"plugins/visual-management-plugin-iframe/README.md","ref":"plugins/visual-management-plugin-iframe/README.md","articles":[]},{"title":"iPMP","level":"1.2.3","depth":2,"path":"plugins/visual-management-plugin-ipmp/README.md","ref":"plugins/visual-management-plugin-ipmp/README.md","articles":[{"title":"Status","level":"1.2.3.1","depth":3,"path":"plugins/visual-management-plugin-ipmp/status/README.md","ref":"plugins/visual-management-plugin-ipmp/status/README.md","articles":[]},{"title":"Status list","level":"1.2.3.2","depth":3,"path":"plugins/visual-management-plugin-ipmp/status-list/README.md","ref":"plugins/visual-management-plugin-ipmp/status-list/README.md","articles":[]}]},{"title":"Jenkins","level":"1.2.4","depth":2,"path":"plugins/visual-management-plugin-jenkins/README.md","ref":"plugins/visual-management-plugin-jenkins/README.md","articles":[]},{"title":"SonarQube","level":"1.2.5","depth":2,"path":"plugins/visual-management-plugin-sonar/README.md","ref":"plugins/visual-management-plugin-sonar/README.md","articles":[]},{"title":"Title","level":"1.2.6","depth":2,"path":"plugins/visual-management-plugin-title/README.md","ref":"plugins/visual-management-plugin-title/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","-sharing"],"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-05-17T14:40:31.157Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-23T09:18:33.596Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

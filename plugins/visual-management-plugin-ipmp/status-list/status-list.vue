@@ -4,37 +4,50 @@
       <div
         class="project"
         v-for="project in projects"
-        v-if="project.criticityMinor !== 0 || project.criticityMajor !== 0 || project.criticityBlocking !== 0"
+        v-if="
+          (config.showCriticty.none && project.criticityNone !== 0) ||
+          (config.showCriticty.minor && project.criticityMinor !== 0) ||
+          (config.showCriticty.major && project.criticityMajor !== 0) ||
+          (config.showCriticty.blocking && project.criticityBlocking !== 0)
+        "
       >
         <p class="name">{{ project.name }}</p>
 
-        <!--<span-->
-        <!--class="counter none"-->
-        <!--:class="{ inactive: project.criticityNone === 0 }"-->
-        <!--@click="onCriticityClick(CRITICITY.NONE, project)"-->
-        <!--&gt;{{ project.criticityNone }}</span>-->
+        <span
+          class="counter none"
+          v-if="config.showCriticty.none"
+          :class="{ inactive: project.criticityNone === 0 }"
+          @click="onCriticityClick(CRITICITY.NONE, project)"
+        >{{ project.criticityNone }}</span>
+
         <span
           class="counter minor"
+          v-if="config.showCriticty.minor"
           :class="{ inactive: project.criticityMinor === 0 }"
           @click="onCriticityClick(CRITICITY.MINOR, project)"
         >{{ project.criticityMinor }}</span>
+
         <span
           class="counter major"
+          v-if="config.showCriticty.major"
           :class="{ inactive: project.criticityMajor === 0 }"
           @click="onCriticityClick(CRITICITY.MAJOR, project)"
         >{{ project.criticityMajor }}</span>
+
         <span
           class="counter blocking"
+          v-if="config.showCriticty.blocking"
           :class="{ inactive: project.criticityBlocking === 0 }"
           @click="onCriticityClick(CRITICITY.BLOCKING, project)"
         >{{ project.criticityBlocking }}</span>
+
       </div>
     </div>
 
     <div class="tickets-list-container" :class="{ hidden: ticketsListHidden }">
       <ul class="tickets-list">
         <li v-for="ticket in ticketsList">
-          <a :href="`https://ipmp.sii-ouest.fr/view/main.php?directAccess=true&objectClass=Ticket&objectId=${ticket.id}`" target="_blank">
+          <a :href="`${config.host}/view/main.php?directAccess=true&objectClass=Ticket&objectId=${ticket.id}`" target="_blank">
             #{{ ticket.id }} {{ ticket.name }}
           </a>
         </li>
@@ -142,6 +155,12 @@
         host          : String,
         username      : String,
         password      : String,
+        showCriticty  : {
+          none    : Boolean,
+          minor   : Boolean,
+          major   : Boolean,
+          blocking: Boolean
+        },
         projects      : Array,
         updateInterval: Number
       }
