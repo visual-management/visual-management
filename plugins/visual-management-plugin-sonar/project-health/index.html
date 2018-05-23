@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Status list · GitBook</title>
+        <title>Project health · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../../visual-management-plugin-jenkins/" />
+    <link rel="next" href="../resource-reporter/" />
     
     
-    <link rel="prev" href="../status/" />
+    <link rel="prev" href="../" />
     
 
     </head>
@@ -146,9 +146,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="../">
+        <li class="chapter " data-level="1.2.3" data-path="../../visual-management-plugin-ipmp/">
             
-                <a href="../">
+                <a href="../../visual-management-plugin-ipmp/">
             
                     
                     iPMP
@@ -160,9 +160,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.3.1" data-path="../status/">
+        <li class="chapter " data-level="1.2.3.1" data-path="../../visual-management-plugin-ipmp/status/">
             
-                <a href="../status/">
+                <a href="../../visual-management-plugin-ipmp/status/">
             
                     
                     Status
@@ -173,9 +173,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3.2" data-path="./">
+        <li class="chapter " data-level="1.2.3.2" data-path="../../visual-management-plugin-ipmp/status-list/">
             
-                <a href="./">
+                <a href="../../visual-management-plugin-ipmp/status-list/">
             
                     
                     Status list
@@ -236,9 +236,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="../../visual-management-plugin-sonar/">
+        <li class="chapter " data-level="1.2.5" data-path="../">
             
-                <a href="../../visual-management-plugin-sonar/">
+                <a href="../">
             
                     
                     SonarQube
@@ -250,9 +250,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.5.1" data-path="../../visual-management-plugin-sonar/project-health/">
+        <li class="chapter active" data-level="1.2.5.1" data-path="./">
             
-                <a href="../../visual-management-plugin-sonar/project-health/">
+                <a href="./">
             
                     
                     Project health
@@ -263,9 +263,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5.2" data-path="../../visual-management-plugin-sonar/resource-reporter/">
+        <li class="chapter " data-level="1.2.5.2" data-path="../resource-reporter/">
             
-                <a href="../../visual-management-plugin-sonar/resource-reporter/">
+                <a href="../resource-reporter/">
             
                     
                     Resource reporter
@@ -329,7 +329,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >Status list</a>
+        <a href="../../.." >Project health</a>
     </h1>
 </div>
 
@@ -344,46 +344,25 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="ipmp---status-list">iPMP - Status List</h1>
-<p align="center">
-  <img alt="iPMP - Status List" src="../assets/status-list.png">
-</p>
-
-<p align="center">Show the number of <strong>minor</strong>, <strong>major</strong> and <strong>blocking</strong> issues for an iPMP project.</p>
-
-<hr>
+                                <h1 id="violation-reporter">Violation reporter</h1>
+<p>SonarQube project health.</p>
+<blockquote>
+<p>Disclaimer</p>
+<p>Minimum SonarQube version: <strong>5.x</strong></p>
+</blockquote>
 <h2 id="configuration">Configuration</h2>
 <h3 id="host">host</h3>
 <p><code>string</code></p>
-<p>iPMP host.</p>
-<h3 id="username">username</h3>
+<p>SonarQube host.</p>
+<h3 id="projectkey">projectKey</h3>
 <p><code>string</code></p>
-<p>iPMP username.</p>
-<h3 id="password">password</h3>
+<p>Project key to retrieve information from.</p>
+<h3 id="name">name</h3>
 <p><code>string</code></p>
-<p>iPMP password.</p>
+<p>Name to be displayed.</p>
 <h3 id="updateinterval">updateInterval</h3>
 <p><code>number</code> (in milliseconds), defaults to <code>60000</code></p>
-<p>Update component info at this time interval.</p>
-<h3 id="showcriticty">showCriticty</h3>
-<p><code>{none: boolean, minor: boolean, major: boolean, blocking: Blocking}</code>, defaults to <code>{none: false, minor: true, major: true, blocking: true}</code></p>
-<p>Choose which criticity should be displayed.</p>
-<h3 id="projects&#xB2;">projects&#xB2;</h3>
-<p><code>Array&lt;{id: number, name: string, ignoreTypes: Array&lt;string&gt;, ignoreStatuses: Array&lt;string&gt;}&gt;</code></p>
-<h4 id="projectsid">projects.id</h4>
-<p><code>number</code></p>
-<p>iPMP project ID.</p>
-<h4 id="projectsname">projects.name</h4>
-<p><code>string</code></p>
-<p>Name of the project to be displayed.</p>
-<h4 id="projectsignoretypes">projects.ignoreTypes</h4>
-<p><code>Array&lt;string&gt;</code></p>
-<p>When calculating the number of issues, these types will be ignored.</p>
-<p>See iPMP&apos;s <strong>type de ticket</strong> for available types.</p>
-<h4 id="projectsignorestatuses">projects.ignoreStatuses</h4>
-<p><code>Array&lt;string&gt;</code></p>
-<p>When calculating the number of issues, these statuses will be ignored.</p>
-<p>See iPMP&apos;s <strong>&#xE9;tat</strong> for available types.</p>
+<p>Update counter at this time interval.</p>
 
                                 
                                 </section>
@@ -417,7 +396,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Status list","level":"1.2.3.2","depth":3,"next":{"title":"Jenkins","level":"1.2.4","depth":2,"path":"plugins/visual-management-plugin-jenkins/README.md","ref":"plugins/visual-management-plugin-jenkins/README.md","articles":[{"title":"Job","level":"1.2.4.1","depth":3,"path":"plugins/visual-management-plugin-jenkins/job/README.md","ref":"plugins/visual-management-plugin-jenkins/job/README.md","articles":[]},{"title":"Jobs list","level":"1.2.4.2","depth":3,"path":"plugins/visual-management-plugin-jenkins/jobs-list/README.md","ref":"plugins/visual-management-plugin-jenkins/jobs-list/README.md","articles":[]}]},"previous":{"title":"Status","level":"1.2.3.1","depth":3,"path":"plugins/visual-management-plugin-ipmp/status/README.md","ref":"plugins/visual-management-plugin-ipmp/status/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","-sharing"],"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"plugins/visual-management-plugin-ipmp/status-list/README.md","mtime":"2018-05-23T08:59:03.234Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-23T09:23:19.022Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Project health","level":"1.2.5.1","depth":3,"next":{"title":"Resource reporter","level":"1.2.5.2","depth":3,"path":"plugins/visual-management-plugin-sonar/resource-reporter/README.md","ref":"plugins/visual-management-plugin-sonar/resource-reporter/README.md","articles":[]},"previous":{"title":"SonarQube","level":"1.2.5","depth":2,"path":"plugins/visual-management-plugin-sonar/README.md","ref":"plugins/visual-management-plugin-sonar/README.md","articles":[{"title":"Project health","level":"1.2.5.1","depth":3,"path":"plugins/visual-management-plugin-sonar/project-health/README.md","ref":"plugins/visual-management-plugin-sonar/project-health/README.md","articles":[]},{"title":"Resource reporter","level":"1.2.5.2","depth":3,"path":"plugins/visual-management-plugin-sonar/resource-reporter/README.md","ref":"plugins/visual-management-plugin-sonar/resource-reporter/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","-sharing"],"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"plugins/visual-management-plugin-sonar/project-health/README.md","mtime":"2017-10-13T08:27:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-23T09:23:19.022Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>

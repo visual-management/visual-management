@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Status list · GitBook</title>
+        <title>Job · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../../visual-management-plugin-jenkins/" />
+    <link rel="next" href="../jobs-list/" />
     
     
-    <link rel="prev" href="../status/" />
+    <link rel="prev" href="../" />
     
 
     </head>
@@ -146,9 +146,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="../">
+        <li class="chapter " data-level="1.2.3" data-path="../../visual-management-plugin-ipmp/">
             
-                <a href="../">
+                <a href="../../visual-management-plugin-ipmp/">
             
                     
                     iPMP
@@ -160,9 +160,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.3.1" data-path="../status/">
+        <li class="chapter " data-level="1.2.3.1" data-path="../../visual-management-plugin-ipmp/status/">
             
-                <a href="../status/">
+                <a href="../../visual-management-plugin-ipmp/status/">
             
                     
                     Status
@@ -173,9 +173,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3.2" data-path="./">
+        <li class="chapter " data-level="1.2.3.2" data-path="../../visual-management-plugin-ipmp/status-list/">
             
-                <a href="./">
+                <a href="../../visual-management-plugin-ipmp/status-list/">
             
                     
                     Status list
@@ -191,9 +191,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="../../visual-management-plugin-jenkins/">
+        <li class="chapter " data-level="1.2.4" data-path="../">
             
-                <a href="../../visual-management-plugin-jenkins/">
+                <a href="../">
             
                     
                     Jenkins
@@ -205,9 +205,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.4.1" data-path="../../visual-management-plugin-jenkins/job/">
+        <li class="chapter active" data-level="1.2.4.1" data-path="./">
             
-                <a href="../../visual-management-plugin-jenkins/job/">
+                <a href="./">
             
                     
                     Job
@@ -218,9 +218,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4.2" data-path="../../visual-management-plugin-jenkins/jobs-list/">
+        <li class="chapter " data-level="1.2.4.2" data-path="../jobs-list/">
             
-                <a href="../../visual-management-plugin-jenkins/jobs-list/">
+                <a href="../jobs-list/">
             
                     
                     Jobs list
@@ -329,7 +329,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >Status list</a>
+        <a href="../../.." >Job</a>
     </h1>
 </div>
 
@@ -344,46 +344,32 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="ipmp---status-list">iPMP - Status List</h1>
+                                <h1 id="job">Job</h1>
+<p>Show a job state.</p>
+<p>When a job is running, a blink animation is showed (through the <code>.blink</code> class).</p>
 <p align="center">
-  <img alt="iPMP - Status List" src="../assets/status-list.png">
+  <img alt="Job state" src="https://github.com/ValentinGot/visual-management-pm/blob/master/packages/vism-plugin-jenkins/assets/job-state.png?raw=true">
 </p>
 
-<p align="center">Show the number of <strong>minor</strong>, <strong>major</strong> and <strong>blocking</strong> issues for an iPMP project.</p>
-
-<hr>
 <h2 id="configuration">Configuration</h2>
 <h3 id="host">host</h3>
 <p><code>string</code></p>
-<p>iPMP host.</p>
+<p>Jenkins host.</p>
 <h3 id="username">username</h3>
 <p><code>string</code></p>
-<p>iPMP username.</p>
-<h3 id="password">password</h3>
+<p>Jenkins username. We can use it when an authentication to the API is needed.</p>
+<h3 id="apitoken">apiToken</h3>
 <p><code>string</code></p>
-<p>iPMP password.</p>
+<p>Jenkins token for the API. We can use it when an authentication to the API is needed.</p>
+<h3 id="job">job</h3>
+<p><code>string</code></p>
+<p>Job identifier.</p>
+<h3 id="name">name</h3>
+<p><code>string</code></p>
+<p>Name to be displayed.</p>
 <h3 id="updateinterval">updateInterval</h3>
 <p><code>number</code> (in milliseconds), defaults to <code>60000</code></p>
-<p>Update component info at this time interval.</p>
-<h3 id="showcriticty">showCriticty</h3>
-<p><code>{none: boolean, minor: boolean, major: boolean, blocking: Blocking}</code>, defaults to <code>{none: false, minor: true, major: true, blocking: true}</code></p>
-<p>Choose which criticity should be displayed.</p>
-<h3 id="projects&#xB2;">projects&#xB2;</h3>
-<p><code>Array&lt;{id: number, name: string, ignoreTypes: Array&lt;string&gt;, ignoreStatuses: Array&lt;string&gt;}&gt;</code></p>
-<h4 id="projectsid">projects.id</h4>
-<p><code>number</code></p>
-<p>iPMP project ID.</p>
-<h4 id="projectsname">projects.name</h4>
-<p><code>string</code></p>
-<p>Name of the project to be displayed.</p>
-<h4 id="projectsignoretypes">projects.ignoreTypes</h4>
-<p><code>Array&lt;string&gt;</code></p>
-<p>When calculating the number of issues, these types will be ignored.</p>
-<p>See iPMP&apos;s <strong>type de ticket</strong> for available types.</p>
-<h4 id="projectsignorestatuses">projects.ignoreStatuses</h4>
-<p><code>Array&lt;string&gt;</code></p>
-<p>When calculating the number of issues, these statuses will be ignored.</p>
-<p>See iPMP&apos;s <strong>&#xE9;tat</strong> for available types.</p>
+<p>Update counter at this time interval.</p>
 
                                 
                                 </section>
@@ -417,7 +403,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Status list","level":"1.2.3.2","depth":3,"next":{"title":"Jenkins","level":"1.2.4","depth":2,"path":"plugins/visual-management-plugin-jenkins/README.md","ref":"plugins/visual-management-plugin-jenkins/README.md","articles":[{"title":"Job","level":"1.2.4.1","depth":3,"path":"plugins/visual-management-plugin-jenkins/job/README.md","ref":"plugins/visual-management-plugin-jenkins/job/README.md","articles":[]},{"title":"Jobs list","level":"1.2.4.2","depth":3,"path":"plugins/visual-management-plugin-jenkins/jobs-list/README.md","ref":"plugins/visual-management-plugin-jenkins/jobs-list/README.md","articles":[]}]},"previous":{"title":"Status","level":"1.2.3.1","depth":3,"path":"plugins/visual-management-plugin-ipmp/status/README.md","ref":"plugins/visual-management-plugin-ipmp/status/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","-sharing"],"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"plugins/visual-management-plugin-ipmp/status-list/README.md","mtime":"2018-05-23T08:59:03.234Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-23T09:23:19.022Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Job","level":"1.2.4.1","depth":3,"next":{"title":"Jobs list","level":"1.2.4.2","depth":3,"path":"plugins/visual-management-plugin-jenkins/jobs-list/README.md","ref":"plugins/visual-management-plugin-jenkins/jobs-list/README.md","articles":[]},"previous":{"title":"Jenkins","level":"1.2.4","depth":2,"path":"plugins/visual-management-plugin-jenkins/README.md","ref":"plugins/visual-management-plugin-jenkins/README.md","articles":[{"title":"Job","level":"1.2.4.1","depth":3,"path":"plugins/visual-management-plugin-jenkins/job/README.md","ref":"plugins/visual-management-plugin-jenkins/job/README.md","articles":[]},{"title":"Jobs list","level":"1.2.4.2","depth":3,"path":"plugins/visual-management-plugin-jenkins/jobs-list/README.md","ref":"plugins/visual-management-plugin-jenkins/jobs-list/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","-sharing"],"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"plugins/visual-management-plugin-jenkins/job/README.md","mtime":"2017-10-13T08:27:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-23T09:23:19.022Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
