@@ -1,6 +1,10 @@
 <h1 align="center">Visual Management</h1>
 
 <p align="center">
+  <img alt="Visual Management" src="/assets/example.png" height="450px" />
+</p>
+
+<p align="center">
   <a href="https://visual-management.github.io/visual-management/"><strong>Documentation</strong></a>
 </p>
 

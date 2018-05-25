@@ -1,8 +1,12 @@
-# Jobs list
+# Jenkins - Jobs list
 
-Show a jobs list and there current state.
+<p align="center">
+  <img alt="Jenkins - Jobs list" src="/plugins/visual-management-plugin-jenkins/assets/jobs-list.png" />
+</p>
 
-When a job is running, a blink animation is showed (through the `.blink` class).
+<p align="center">Show a jobs list and there current state.</p>
+
+---
 
 ## Configuration
 
