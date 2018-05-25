@@ -4,6 +4,7 @@ import IPMP from '../plugins/visual-management-plugin-ipmp'
 import Jenkins from '../plugins/visual-management-plugin-jenkins'
 import Sonar from '../plugins/visual-management-plugin-sonar'
 import Title from '../plugins/visual-management-plugin-title'
+import SiiPortal from '../plugins/visual-management-plugin-sii-portal'
 
 export const Plugins = [
   Clock,
@@ -11,5 +12,6 @@ export const Plugins = [
   IPMP,
   Jenkins,
   Sonar,
-  Title
+  Title,
+  SiiPortal
 ];

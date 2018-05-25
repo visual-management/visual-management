@@ -1,0 +1,17 @@
+{
+  "name": "@visual-management/plugin-sii-portal",
+  "version": "1.0.0",
+  "description": "A set of components for the SII Portal (calendar, application urls, ...)",
+  "main": "./entry-point.js",
+  "license": "MIT",
+  "contributors": [
+    "Valentin Got <gotvalentin@gmail.com>"
+  ],
+  "repository": "https://github.com/visual-management/tree/master/plugins/visual-management-plugin-sii-portal",
+  "peerDependencies": {
+    "moment": "^2.22.1",
+    "vue": "^2.2.6",
+    "vue-async-computed": "^3.3.1",
+    "vue-resource": "^1.3.4"
+  }
+}

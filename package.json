@@ -23,8 +23,10 @@
   "repository": "https://github.com/visual-management/tree/master/packages/visual-management-core",
   "dependencies": {
     "mfb": "^0.12.0",
+    "moment": "^2.22.1",
     "phantomjs-prebuilt": "^2.1.16",
     "vue": "^2.2.2",
+    "vue-async-computed": "^3.3.1",
     "vue-grid-layout": "^2.1.0",
     "vue-resource": "^1.3.4",
     "vue-socket.io": "^2.1.0"
@@ -84,7 +86,6 @@
     "sinon": "^2.1.0",
     "sinon-chai": "^2.8.0",
     "url-loader": "^0.5.8",
-    "vue-async-computed": "^3.3.1",
     "vue-loader": "^11.1.4",
     "vue-style-loader": "^3.0.3",
     "vue-template-compiler": "^2.2.4",
