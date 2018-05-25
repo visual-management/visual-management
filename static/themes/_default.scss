@@ -4,6 +4,9 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 
+@import '../abstract/theming';
+@import '../abstract/all-themes';
+
 //  Floating Action button
 //----------------------------------------
 
@@ -46,17 +49,6 @@ body {
   font-family: 'Roboto Mono', 'Roboto', sans-serif;
 }
 
-//  Clock
-//----------------------------------------
-
-.clock-plugin {
-
-  & .clock-day {
-    color: $primary-text-color;
-  }
-
-}
-
 //  iPMP
 //----------------------------------------
 
@@ -67,3 +59,66 @@ body {
   }
 
 }
+
+
+//----------------------------------------
+//----------------------------------------
+
+$black-87-opacity: rgba(#000000, .87);
+$white-87-opacity: rgba(#FFFFFF, .87);
+
+$crf-primary: (
+  50: #FC6D81,
+  100: #FC546C,
+  200: #FC3B56,
+  300: #FB2241,
+  400: #FB092B,
+  500: #E60424,
+  600: #CD0420,
+  700: #B4031C,
+  800: #9B0318,
+  900: #820214,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: #FFFFFF,
+    400: #FFFFFF,
+    500: $white-87-opacity,
+    600: $white-87-opacity,
+    700: $white-87-opacity,
+    800: $white-87-opacity,
+    900: $white-87-opacity
+  )
+);
+
+$crf-accent: (
+  50: #E6ECED,
+  100: #C0CED3,
+  200: #96AEB5,
+  300: #6C8E97,
+  400: #4D7581,
+  500: #2D5D6B,
+  600: #285563,
+  700: #224B58,
+  800: #1C414E,
+  900: #11303C,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: #FFFFFF,
+    400: #FFFFFF,
+    500: $white-87-opacity,
+    600: $white-87-opacity,
+    700: $white-87-opacity,
+    800: $white-87-opacity,
+    900: $white-87-opacity
+  )
+);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$crf-theme: create-theme($crf-primary, $crf-accent);
+
+// Include theme styles for core and each component used in your app.
+@include visual-management-theme($crf-theme);

@@ -1,0 +1,23 @@
+// Creates a container object for a theme.
+@function create-theme ($primary, $accent) {
+  @return (
+    primary: $primary,
+    accent: $accent
+  );
+}
+
+// For a given hue in a palette, return the contrast color from the map of contrast palettes.
+//
+// @param $palette
+// @param $hue
+@function get-contrast ($palette, $hue) {
+  @return map-get(map-get($palette, contrast), $hue);
+}
+
+// Gets a color from a theme palette.
+//
+// @param $palette
+// @param $hue
+@function get-color ($palette, $hue) {
+  @return map-get($palette, $hue);
+}

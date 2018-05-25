@@ -1,0 +1,12 @@
+//----------------------------------------
+//  Mixin to create a theme
+//----------------------------------------
+
+@import '../../plugins/visual-management-plugin-clock/clock-theme';
+
+//----------------------------------------
+
+// Create a theme
+@mixin visual-management-theme ($theme) {
+  @include clock-theme($theme);
+}
