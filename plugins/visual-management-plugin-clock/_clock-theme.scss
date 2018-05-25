@@ -4,7 +4,6 @@
 
 @mixin clock-theme ($theme) {
   $primary: map-get($theme, primary);
-  $accent: map-get($theme, accent);
 
   .clock-component {
     background-color: get-color($primary, 500);

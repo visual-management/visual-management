@@ -1,0 +1,13 @@
+//----------------------------------------
+//  Title - Theme
+//----------------------------------------
+
+@mixin title-theme ($theme) {
+  $primary: map-get($theme, primary);
+
+  .title-cmpt-component {
+    background-color: get-color($primary, 500);
+    color: get-contrast($primary, 500);
+  }
+
+}
