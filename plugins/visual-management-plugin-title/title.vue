@@ -2,7 +2,7 @@
   <div :class="config.classes" :style="{justifyContent: hAlign, alignItems: vAlign}">{{ config.title }}</div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
   div {
     display: flex;
     height: 100%;
