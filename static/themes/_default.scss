@@ -44,7 +44,6 @@ body {
 }
 
 .sonar-plugin.resource-reporter-component .val,
-.clock-plugin,
 .ipmp-plugin.status-list-component .counter {
   font-family: 'Roboto Mono', 'Roboto', sans-serif;
 }
@@ -67,7 +66,7 @@ body {
 $black-87-opacity: rgba(#000000, .87);
 $white-87-opacity: rgba(#FFFFFF, .87);
 
-$crf-primary: (
+$default-primary: (
   50: #FC6D81,
   100: #FC546C,
   200: #FC3B56,
@@ -92,7 +91,7 @@ $crf-primary: (
   )
 );
 
-$crf-accent: (
+$default-accent: (
   50: #E6ECED,
   100: #C0CED3,
   200: #96AEB5,
@@ -117,8 +116,10 @@ $crf-accent: (
   )
 );
 
+$default-font-family: 'Roboto Mono', 'Roboto', sans-serif;
+
 // Create the theme object (a Sass map containing all of the palettes).
-$crf-theme: create-theme($crf-primary, $crf-accent);
+$crf-theme: create-theme($default-primary, $default-accent, $default-font-family);
 
 // Include theme styles for core and each component used in your app.
 @include visual-management-theme($crf-theme);

@@ -1,8 +1,13 @@
 // Creates a container object for a theme.
-@function create-theme ($primary, $accent) {
+//
+// @param $primary
+// @param $accent
+// @param $font
+@function create-theme ($primary, $accent, $font) {
   @return (
     primary: $primary,
-    accent: $accent
+    accent: $accent,
+    font: $font
   );
 }
 

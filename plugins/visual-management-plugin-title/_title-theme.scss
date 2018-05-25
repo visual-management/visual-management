@@ -8,6 +8,7 @@
   .title-cmpt-component {
     background-color: get-color($primary, 500);
     color: get-contrast($primary, 500);
+    font-family: map-get($theme, font);
   }
 
 }
