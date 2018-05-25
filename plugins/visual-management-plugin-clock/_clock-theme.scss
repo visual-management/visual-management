@@ -1,0 +1,22 @@
+//----------------------------------------
+//  Clock - Theme
+//----------------------------------------
+
+@mixin clock-theme ($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  .clock-component {
+    background-color: get-color($primary, 500);
+
+    .clock-day {
+      color: get-contrast($primary, 500);
+    }
+
+    .clock-time {
+      color: get-contrast($primary, 500);
+    }
+
+  }
+
+}
