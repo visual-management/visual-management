@@ -7,50 +7,51 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
   .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
-  }
 
-  .container .clock-day {
-    font-size: 2vw;
-  }
+    .clock-day {
+      font-size: 2vw;
+    }
 
-  .container .clock-time {
-    font-size: 6vw;
-  }
+    .clock-time {
+      font-size: 6vw;
+    }
 
-  .alarm {
-    visibility: hidden;
-    width: 0;
-    height: 0;
-  }
+    .alarm {
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
 
-  .btn-stop {
-    background: #313131;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 9;
-    border: 0;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-  }
+    .btn-stop {
+      background: #313131;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 9;
+      border: 0;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
 
-  .btn-stop:after {
-    content: ' ';
-    border-radius: 2px;
-    width: 15px;
-    height: 15px;
-    background: #fff;
-    display: block;
-  }
+      &:after {
+        content: ' ';
+        border-radius: 2px;
+        width: 15px;
+        height: 15px;
+        background: #fff;
+        display: block;
+      }
 
+    }
+
+  }
 </style>
 
 <script>
