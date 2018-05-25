@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Resource reporter · GitBook</title>
+        <title>Planning · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../../visual-management-plugin-title/" />
+    <link rel="next" href="../../visual-management-plugin-sonar/" />
     
     
-    <link rel="prev" href="../project-health/" />
+    <link rel="prev" href="../" />
     
 
     </head>
@@ -268,9 +268,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.6" data-path="../../visual-management-plugin-sii-portal/">
+        <li class="chapter " data-level="1.2.6" data-path="../">
             
-                <a href="../../visual-management-plugin-sii-portal/">
+                <a href="../">
             
                     
                     SII Portal
@@ -282,9 +282,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.6.1" data-path="../../visual-management-plugin-sii-portal/planning/">
+        <li class="chapter active" data-level="1.2.6.1" data-path="./">
             
-                <a href="../../visual-management-plugin-sii-portal/planning/">
+                <a href="./">
             
                     
                     Planning
@@ -300,9 +300,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.7" data-path="../">
+        <li class="chapter " data-level="1.2.7" data-path="../../visual-management-plugin-sonar/">
             
-                <a href="../">
+                <a href="../../visual-management-plugin-sonar/">
             
                     
                     SonarQube
@@ -314,9 +314,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.7.1" data-path="../project-health/">
+        <li class="chapter " data-level="1.2.7.1" data-path="../../visual-management-plugin-sonar/project-health/">
             
-                <a href="../project-health/">
+                <a href="../../visual-management-plugin-sonar/project-health/">
             
                     
                     Project health
@@ -327,9 +327,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.7.2" data-path="./">
+        <li class="chapter " data-level="1.2.7.2" data-path="../../visual-management-plugin-sonar/resource-reporter/">
             
-                <a href="./">
+                <a href="../../visual-management-plugin-sonar/resource-reporter/">
             
                     
                     Resource reporter
@@ -393,7 +393,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >Resource reporter</a>
+        <a href="../../.." >Planning</a>
     </h1>
 </div>
 
@@ -408,47 +408,27 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="violation-reporter">Violation reporter</h1>
-<p>SonarQube resource reporter.</p>
+                                <h1 id="sii-portal---planning">SII Portal - Planning</h1>
 <p align="center">
-  <img alt="Resource repoter" src="https://github.com/ValentinGot/visual-management-pm/blob/master/packages/vism-plugin-sonar/assets/violation-reporter.png?raw=true">
-  <img alt="Resource repoter - On error" src="https://github.com/ValentinGot/visual-management-pm/blob/master/packages/vism-plugin-sonar/assets/violation-reporter-has-errors.png?raw=true">
-  <img alt="Resource repoter - With unit" src="https://github.com/ValentinGot/visual-management-pm/blob/master/packages/vism-plugin-sonar/assets/violation-reporter-has-unit.png?raw=true">
+  <img alt="SII Portal - Planning" src="../assets/planning.png">
 </p>
 
+<p align="center">Show a planning of upcoming events: <strong>today</strong>, <strong>tomorrow</strong> &amp; <strong>most important upcoming events</strong>.</p>
+
+<hr>
 <h2 id="configuration">Configuration</h2>
 <h3 id="host">host</h3>
 <p><code>string</code></p>
-<p>SonarQube host.</p>
-<h3 id="projectid">projectId</h3>
-<p><code>number</code>, defaults to <code>0</code></p>
-<p>Project ID to retrieve information from.</p>
-<h3 id="name">name</h3>
-<p><code>string</code></p>
-<p>Name to be displayed.</p>
-<h3 id="unit">unit</h3>
-<p><code>string</code></p>
-<p>Unit to be displayed.</p>
-<blockquote>
-<p>Disclaimer</p>
-<p>If a unit is found on the API return, it will use this one instead of the given one.
-e.g: For <strong>test_execution_time</strong> metric, it will use the returned time unit (ms, s, ...).</p>
-</blockquote>
-<h3 id="metric">metric</h3>
-<p><code>string</code></p>
-<p>One of the available SonarQube metrics.</p>
-<p>Some on the available metrics can be found <a href="https://docs.sonarqube.org/display/SONAR/Metric+definitions" target="_blank">here</a>.</p>
-<blockquote>
-<p>Disclaimer</p>
-<p>SonarQube documentation on metrics seems not to be exhaustive, you can use /api/metrics to show all available metrics.</p>
-</blockquote>
-<h3 id="onerror">onError</h3>
-<p><code>number</code>, defaults to <code>0</code></p>
-<p>If the result is greater (or equal) than the given <code>onError</code> value, it will add the <code>has-error</code> class to your component.</p>
-<p>Useful add some styles on error.</p>
+<p>SII portal host.</p>
+<h3 id="importantagendas">importantAgendas</h3>
+<p><code>Array&lt;string&gt;</code></p>
+<p>List of agendas you want to mark as <strong>important</strong>. They will appear in the important upcoming events for the next <code>importantEventsDays</code> days.</p>
+<h3 id="importanteventsdays">importantEventsDays</h3>
+<p><code>number</code>, defaults to <code>5</code></p>
+<p>The number of days from which to retrieve the important events The number of days from which to retrieve the important events (starts the day after &quot;Tomorrow&quot;).</p>
 <h3 id="updateinterval">updateInterval</h3>
-<p><code>number</code> (in milliseconds), defaults to <code>60000</code></p>
-<p>Update counter at this time interval.</p>
+<p><code>number</code> (in milliseconds), defaults to <code>36000000</code> (10 hours)</p>
+<p>Update component info at this time interval.</p>
 
                                 
                                 </section>
@@ -482,7 +462,7 @@ e.g: For <strong>test_execution_time</strong> metric, it will use the returned t
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Resource reporter","level":"1.2.7.2","depth":3,"next":{"title":"Title","level":"1.2.8","depth":2,"path":"plugins/visual-management-plugin-title/README.md","ref":"plugins/visual-management-plugin-title/README.md","articles":[]},"previous":{"title":"Project health","level":"1.2.7.1","depth":3,"path":"plugins/visual-management-plugin-sonar/project-health/README.md","ref":"plugins/visual-management-plugin-sonar/project-health/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","-sharing"],"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"plugins/visual-management-plugin-sonar/resource-reporter/README.md","mtime":"2017-10-13T08:27:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-25T14:33:19.550Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Planning","level":"1.2.6.1","depth":3,"next":{"title":"SonarQube","level":"1.2.7","depth":2,"path":"plugins/visual-management-plugin-sonar/README.md","ref":"plugins/visual-management-plugin-sonar/README.md","articles":[{"title":"Project health","level":"1.2.7.1","depth":3,"path":"plugins/visual-management-plugin-sonar/project-health/README.md","ref":"plugins/visual-management-plugin-sonar/project-health/README.md","articles":[]},{"title":"Resource reporter","level":"1.2.7.2","depth":3,"path":"plugins/visual-management-plugin-sonar/resource-reporter/README.md","ref":"plugins/visual-management-plugin-sonar/resource-reporter/README.md","articles":[]}]},"previous":{"title":"SII Portal","level":"1.2.6","depth":2,"path":"plugins/visual-management-plugin-sii-portal/README.md","ref":"plugins/visual-management-plugin-sii-portal/README.md","articles":[{"title":"Planning","level":"1.2.6.1","depth":3,"path":"plugins/visual-management-plugin-sii-portal/planning/README.md","ref":"plugins/visual-management-plugin-sii-portal/planning/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","-sharing"],"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"plugins/visual-management-plugin-sii-portal/planning/README.md","mtime":"2018-05-24T09:48:51.526Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-25T14:33:19.550Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
