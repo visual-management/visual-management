@@ -9,7 +9,8 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs",
     "gitbook:serve": "gitbook serve",
     "gitbook:build": "gitbook build",
-    "publish:documentation": "npm run gitbook:build && gh-pages -d _book"
+    "publish:documentation": "npm run gitbook:build && gh-pages -d _book",
+    "postintsall": "npm --prefix plugins/visual-management-server/ install"
   },
   "contributors": [
     "Valentin Got <gotvalentin@gmail.com>",
