@@ -24,7 +24,7 @@
         </editor>
       </div>
       <div class="modal-footer">
-        <button @click="onSave()" v-show="editor" class="material-button primary">Save</button>
+        <button @click="onSave()" v-show="editor" class="material-button accent">Save</button>
       </div>
     </div>
   </div>
@@ -111,8 +111,6 @@
 </script>
 
 <style lang="scss" scoped>
-  @import '../../static/abstract/colors';
-
   .modal-container {
     display: flex;
     position: absolute;
@@ -130,6 +128,7 @@
       height: 100%;
       background-color: rgba(0, 0, 0, .6);
     }
+
   }
 
   .modal-content {
@@ -144,7 +143,6 @@
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s;
-    font-family: Roboto;
 
     .modal-header {
       display: flex;
@@ -152,50 +150,42 @@
       justify-content: space-between;
       align-items: center;
       padding: 2px 24px;
-      background-color: $primary-color;
-      color: white;
 
       span {
         width: 20px;
         cursor: pointer;
       }
+
     }
 
     .modal-body {
-      background-color: white;
       display: block;
       max-height: 40vh;
       overflow: auto;
       padding: 24px;
 
-
-
-
       .plugin-name {
-        color: $primary-color;
         display: flex;
         font-weight: bold;
         flex-direction: column;
         justify-content: space-around;
         padding: 8px 0;
+
         .plugin-description {
           color: darkgrey;
           font-size: 0.8em;
           font-weight: normal;
         }
+
       }
 
       .component {
         cursor: pointer;
         padding: 8px 15px;
         font-size: 0.95em;
-        color: $primary-text-color;
-
-        &:hover {
-          background-color: $primary-color-light;
-          color: $primary-color-text;
-        }
+        transition: background-color .25s, color .25s;
       }
+
     }
 
     .modal-footer {
@@ -203,7 +193,6 @@
       justify-content: flex-end;
       margin: 0 10px;
       align-items: center;
-      //background-color: $primary-color;
       color: white;
       padding-bottom: 10px;
     }
@@ -211,6 +200,7 @@
     .hidden {
       display: none;
     }
+
   }
 
   @-webkit-keyframes animatetop {

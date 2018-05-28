@@ -188,7 +188,6 @@
     right: 0;
     margin: 25px;
     z-index: 30;
-    background-color: $accent-color;
   }
 
   .not-editing {
@@ -214,7 +213,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: $primary-color-80-opacity;
     box-sizing: border-box;
   }
 </style>

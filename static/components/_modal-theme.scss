@@ -1,0 +1,36 @@
+//----------------------------------------
+//  Modal - Theme
+//----------------------------------------
+
+@mixin modal-theme ($theme) {
+  $accent: map-get($theme, accent);
+
+  .modal-container .modal-content {
+    font-family: map-get($theme, font);
+
+    .modal-header {
+      background-color: get-color($accent, 500);
+      color: get-contrast($accent, 500);
+    }
+
+    .modal-body {
+
+      .plugin-name {
+        color: get-color($accent, 500);
+      }
+
+      .component {
+        color: get-color($accent, 400);
+
+        &:hover {
+          background-color: get-color($accent, 300);
+          color: get-contrast($accent, 300);
+        }
+
+      }
+
+    }
+
+  }
+
+}

@@ -2,6 +2,9 @@
 //  Mixin to create a theme
 //----------------------------------------
 
+@import '../components/app-theme';
+@import '../components/button-theme';
+@import '../components/modal-theme';
 @import '../../plugins/visual-management-plugin-clock/clock-theme';
 @import '../../plugins/visual-management-plugin-ipmp/status/status';
 @import '../../plugins/visual-management-plugin-ipmp/status-list/status-list';
@@ -15,6 +18,9 @@
 
 // Create a theme
 @mixin visual-management-theme ($theme) {
+  @include app-theme($theme);
+  @include button-theme($theme);
+  @include modal-theme($theme);
   @include clock-theme($theme);
   @include ipmp-status-theme($theme);
   @include ipmp-status-list-theme($theme);

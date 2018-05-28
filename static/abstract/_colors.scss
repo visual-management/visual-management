@@ -2,15 +2,9 @@
 //  Colors
 //----------------------------------------
 
-$primary-color-dark:   #303F9F;
-$primary-color:        #3F51B5;
-$primary-color-light:  #C5CAE9;
-$primary-color-text:   #FFFFFF;
-$accent-color:         #FF4081;
-$raised-color:         #3bbd63;
-$primary-text-color:   #212121;
-$secondary-text-color: #757575;
-$divider-color:        #BDBDBD;
-
-$primary-color-80-opacity: rgba($primary-color, .8);
-$accent-color-80-opacity: rgba($accent-color, .8);
+$dark-primary-text: rgba(black, 0.87);
+$dark-secondary-text: rgba(black, 0.54);
+$dark-disabled-text: rgba(black, 0.38);
+$light-primary-text: white;
+$light-secondary-text: rgba(white, 0.7);
+$light-disabled-text: rgba(white, 0.5);

@@ -4,7 +4,6 @@
   border:none;
   background: none;
   cursor: pointer;
-  font-family: Roboto;
   outline: none;
   border-radius: 2px;
   padding: 0 16px;
@@ -12,22 +11,4 @@
   text-transform: uppercase;
   font-weight: 500;
   box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
-  color: $primary-color-text;
-
-  &.raised {
-    background-color: $raised-color;
-  }
-
-  &.primary {
-    background-color: $primary-color;
-  }
-
-  &.accent {
-    background-color: $accent-color;
-  }
-
-
-  &.flat {
-    color: $primary-color;
-  }
 }

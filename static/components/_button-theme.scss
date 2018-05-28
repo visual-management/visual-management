@@ -1,0 +1,24 @@
+//----------------------------------------
+//  Button - Theme
+//----------------------------------------
+
+@mixin button-theme ($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  .material-button {
+    font-family: map-get($theme, font);
+
+    &.primary {
+      background-color: get-color($primary, 500);
+      color: get-contrast($primary, 500);
+    }
+
+    &.accent {
+      background-color: get-color($accent, 500);
+      color: get-contrast($accent, 500);
+    }
+
+  }
+
+}

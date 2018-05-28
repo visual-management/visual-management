@@ -1,0 +1,22 @@
+//----------------------------------------
+//  App - Theme
+//----------------------------------------
+
+@mixin app-theme ($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  .save-btn {
+    background-color: get-color($accent, 500);
+    color: get-contrast($accent, 500);
+  }
+
+  .vue-grid-item {
+
+    .edit-mode {
+      background-color: rgba(get-color($primary, 200), .9);
+    }
+
+  }
+
+}
