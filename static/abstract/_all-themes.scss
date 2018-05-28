@@ -3,6 +3,7 @@
 //----------------------------------------
 
 @import '../../plugins/visual-management-plugin-clock/clock-theme';
+@import '../../plugins/visual-management-plugin-server/health/health-theme';
 @import '../../plugins/visual-management-plugin-title/title-theme';
 
 //----------------------------------------
@@ -10,5 +11,6 @@
 // Create a theme
 @mixin visual-management-theme ($theme) {
   @include clock-theme($theme);
+  @include server-health-theme($theme);
   @include title-theme($theme);
 }

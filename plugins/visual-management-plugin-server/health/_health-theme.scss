@@ -1,0 +1,13 @@
+//----------------------------------------
+//  Health - Theme
+//----------------------------------------
+
+@mixin server-health-theme ($theme) {
+  $primary: map-get($theme, primary);
+
+  .server-plugin.health-component {
+    background-color: get-color($primary, 500);
+    font-family: map-get($theme, font);
+  }
+
+}
