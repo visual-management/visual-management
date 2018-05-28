@@ -87,6 +87,10 @@
     flex: 1;
     font-weight: 700;
     font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 8px;
   }
 
   .event .agenda {
