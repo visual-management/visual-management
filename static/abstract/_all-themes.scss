@@ -5,6 +5,8 @@
 @import '../../plugins/visual-management-plugin-clock/clock-theme';
 @import '../../plugins/visual-management-plugin-ipmp/status/status';
 @import '../../plugins/visual-management-plugin-ipmp/status-list/status-list';
+@import '../../plugins/visual-management-plugin-jenkins/job/job';
+@import '../../plugins/visual-management-plugin-jenkins/jobs-list/jobs-list';
 @import '../../plugins/visual-management-plugin-server/health/health-theme';
 @import '../../plugins/visual-management-plugin-title/title-theme';
 
@@ -15,6 +17,8 @@
   @include clock-theme($theme);
   @include ipmp-status-theme($theme);
   @include ipmp-status-list-theme($theme);
+  @include jenkins-job-theme($theme);
+  @include jenkins-jobs-list-theme($theme);
   @include server-health-theme($theme);
   @include title-theme($theme);
 }

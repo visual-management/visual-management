@@ -1,0 +1,19 @@
+//----------------------------------------
+//  Job - Theme
+//----------------------------------------
+
+@mixin jenkins-job-theme ($theme) {
+  $primary: map-get($theme, primary);
+
+  .jenkins-plugin.job-component {
+    background-color: get-color($primary, 500);
+    font-family: map-get($theme, font);
+
+    h4,
+    .date {
+      color: get-contrast($primary, 500);
+    }
+
+  }
+
+}

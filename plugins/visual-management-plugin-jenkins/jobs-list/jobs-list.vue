@@ -85,6 +85,7 @@
   }
 
   .job.blue { background-color: #8CC04F; }
+  .job.blue h4, .job.blue .time-since { color: #333333; }
   .job.yellow { background-color: #F6B44B; }
   .job.yellow h4, .job.yellow .time-since { color: #333333; }
   .job.red { background-color: #D54C53; }

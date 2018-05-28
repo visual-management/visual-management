@@ -1,0 +1,13 @@
+//----------------------------------------
+//  Jobs list - Theme
+//----------------------------------------
+
+@mixin jenkins-jobs-list-theme ($theme) {
+  $primary: map-get($theme, primary);
+
+  .jenkins-plugin.jobs-list-component {
+    background-color: get-color($primary, 500);
+    font-family: map-get($theme, font);
+  }
+
+}
