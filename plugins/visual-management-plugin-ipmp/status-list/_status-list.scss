@@ -1,0 +1,22 @@
+//----------------------------------------
+//  Status list - Theme
+//----------------------------------------
+
+@mixin ipmp-status-list-theme ($theme) {
+  $primary: map-get($theme, primary);
+
+  .ipmp-plugin.status-list-component {
+    background-color: get-color($primary, 500);
+    font-family: map-get($theme, font);
+
+    .project {
+
+      .name {
+        color: get-contrast($primary, 500);
+      }
+
+    }
+
+  }
+
+}
