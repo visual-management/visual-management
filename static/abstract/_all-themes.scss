@@ -8,6 +8,7 @@
 @import '../../plugins/visual-management-plugin-jenkins/job/job';
 @import '../../plugins/visual-management-plugin-jenkins/jobs-list/jobs-list';
 @import '../../plugins/visual-management-plugin-server/health/health-theme';
+@import '../../plugins/visual-management-plugin-sii-portal/planning/planning';
 @import '../../plugins/visual-management-plugin-title/title-theme';
 
 //----------------------------------------
@@ -20,5 +21,6 @@
   @include jenkins-job-theme($theme);
   @include jenkins-jobs-list-theme($theme);
   @include server-health-theme($theme);
+  @include sii-portal-planning-theme($theme);
   @include title-theme($theme);
 }
