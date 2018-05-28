@@ -256,12 +256,24 @@
           date = moment().add(1, 'weeks').isoWeekday(event.dow[0]);
         }
 
-        const startDateSplit = event.start.split(':');
-        const endDateSplit = event.end.split(':');
+        const startDate = date.clone().hours(0).minutes(0).seconds(0);
+        const endDate = date.clone().hours(0).minutes(0).seconds(0);
+
+        if (event.start) {
+          const startDateSplit = event.start.split(':');
+
+          startDate.hours(startDateSplit[0]).minutes(startDateSplit[1]);
+        }
+
+        if (event.end) {
+          const endDateSplit = event.end.split(':');
+
+          startDate.hours(endDateSplit[0]).minutes(endDateSplit[1]);
+        }
 
         return [
-          date.clone().hour(startDateSplit[0]).minute(startDateSplit[1]).second(0),
-          date.clone().hour(endDateSplit[0]).minute(endDateSplit[1]).second(0)
+          startDate,
+          endDate
         ];
       },
 
