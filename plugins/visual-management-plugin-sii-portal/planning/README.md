@@ -30,6 +30,6 @@ The number of days from which to retrieve the important events The number of day
 
 ### updateInterval
 
-`number` (in milliseconds), defaults to `36000000` (10 hours)
+`number` (in milliseconds), defaults to `3600000` (1 hours)
 
 Update component info at this time interval.

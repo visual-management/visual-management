@@ -13,7 +13,7 @@ export default {
         host               : '',
         importantAgendas   : [],
         importantEventsDays: 5,
-        updateInterval     : 36000000 // 10 hours
+        updateInterval     : 3600000 // 1 hours
       },
       defaultWidth : 2,
       defaultHeight: 2
