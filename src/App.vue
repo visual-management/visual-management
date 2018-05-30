@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" @mousemove="onMouseMove()">
     <grid-layout
       :layout="layout"
       :col-num="24"
@@ -30,30 +30,30 @@
       </grid-item>
     </grid-layout>
 
-    <title :config="{ title: 'This is a title!' }"></title>
+    <transition name="fade">
+      <ul class="mfb-component--br mfb-slidein" data-mfb-toggle="hover" data-mfb-state="closed" v-show="!editing && fabVisible">
+        <li class="mfb-component__wrap">
+          <a class="mfb-component__button--main">
+            <i class="mfb-component__main-icon--resting material-icons">menu</i>
+            <i class="mfb-component__main-icon--active material-icons">close</i>
+          </a>
 
-    <ul class="mfb-component--br mfb-slidein" data-mfb-toggle="hover" data-mfb-state="closed" v-show="!editing">
-      <li class="mfb-component__wrap">
-        <a class="mfb-component__button--main">
-          <i class="mfb-component__main-icon--resting material-icons">menu</i>
-          <i class="mfb-component__main-icon--active material-icons">close</i>
-        </a>
+          <ul class="mfb-component__list">
+            <li>
+              <a @click="onEdit" data-mfb-label="Edition mode" class="mfb-component__button--child">
+                <i class="mfb-component__child-icon material-icons">edit</i>
+              </a>
+            </li>
 
-        <ul class="mfb-component__list">
-          <li>
-            <a @click="onEdit" data-mfb-label="Edition mode" class="mfb-component__button--child">
-              <i class="mfb-component__child-icon material-icons">edit</i>
-            </a>
-          </li>
-
-          <li>
-            <a @click="onAddNewComponent" data-mfb-label="Add new component" class="mfb-component__button--child">
-              <i class="mfb-component__child-icon material-icons">add</i>
-            </a>
-          </li>
-        </ul>
-      </li>
-    </ul>
+            <li>
+              <a @click="onAddNewComponent" data-mfb-label="Add new component" class="mfb-component__button--child">
+                <i class="mfb-component__child-icon material-icons">add</i>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </transition>
 
     <a @click="onSave" class="save-btn mfb-component__button--main" v-show="editing">
       <i class="mfb-component__main-icon--resting material-icons">save</i>
@@ -80,9 +80,11 @@
     data () {
       return {
         editing: false,
+        fabVisible: true,
         editItem: null,
         layout: [],
-        showModal: false
+        showModal: false,
+        mouseMoveTimeout: null
       }
     },
 
@@ -124,6 +126,17 @@
       hideModal () {
         this.editItem = null
         this.showModal = false
+      },
+
+      // If the mouse stopped moving for 10 seconds, hide the floating action button.
+      onMouseMove () {
+        clearTimeout(this.mouseMoveTimeout)
+
+        this.fabVisible = true
+
+        this.mouseMoveTimeout = setTimeout(() => {
+          this.fabVisible = false
+        }, 10000)
       }
 
     },
@@ -190,10 +203,6 @@
     z-index: 30;
   }
 
-  .not-editing {
-    /*pointer-events: none;*/
-  }
-
   .vue-resizable-handle {
     z-index: 15;
   }
@@ -214,5 +223,13 @@
     width: 100%;
     height: 100%;
     box-sizing: border-box;
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
   }
 </style>
