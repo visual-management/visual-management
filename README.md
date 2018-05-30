@@ -29,6 +29,8 @@ docker build -t visual-management-server:latest .
 
 ### Run the application
 
+> Before, you need to create the `/opt/visual-management/db` folder
+
 `docker-compose up -d` will automatically deploy the 3 required parts of the application:
 
 * The front-end app
@@ -47,11 +49,11 @@ All plugins are installed by default. The full list can be found [here](/plugins
 # Launch a MongoDB database
 # e.g using Docker
 docker run \
--p 27017:27017 \
--v /opt/visual-management/db:/data/db \
---env MONGO_DATA_DIR=/data/db \
---name visual-management-mongo \
-mongo:3.7.2
+  -p 27017:27017 \
+ --mount type=bind,source=/opt/visual-management/db,destination=/data/db \
+  --env MONGO_DATA_DIR=/data/db \
+  --name visual-management-mongo \
+  mongo:3.7.2
 
 # Launch the front-end app
 npm start
