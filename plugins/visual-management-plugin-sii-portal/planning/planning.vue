@@ -151,18 +151,6 @@
 
       url () {
         return `${this.host}/api/event`;
-      },
-
-      todayUrl () {
-        return `${this.url}/start-date/${moment().format('YYYY-MM-DD')}`;
-      },
-
-      tomorrowUrl () {
-        return `${this.url}/start-date/${moment().add(1, 'day').format('YYYY-MM-DD')}`;
-      },
-
-      importantUrl () {
-        return `${this.url}/between/${moment().add(2, 'days').format('YYYY-MM-DD')}/${moment().add(this.config.importantEventsDays + 2, 'days').format('YYYY-MM-DD')}`;
       }
 
     },
@@ -239,16 +227,28 @@
         return events;
       },
 
+      todayUrl () {
+        return `${this.url}/start-date/${moment().format('YYYY-MM-DD')}`;
+      },
+
+      tomorrowUrl () {
+        return `${this.url}/start-date/${moment().add(1, 'day').format('YYYY-MM-DD')}`;
+      },
+
+      importantUrl () {
+        return `${this.url}/between/${moment().add(2, 'days').format('YYYY-MM-DD')}/${moment().add(this.config.importantEventsDays + 2, 'days').format('YYYY-MM-DD')}`;
+      },
+
       getUrlFromType (type) {
         switch (type) {
           case 'today':
-            return this.todayUrl;
+            return this.todayUrl();
 
           case 'tomorrow':
-            return this.tomorrowUrl;
+            return this.tomorrowUrl();
 
           case 'important':
-            return this.importantUrl;
+            return this.importantUrl();
         }
       },
 
