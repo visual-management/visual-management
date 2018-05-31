@@ -133,9 +133,11 @@
         clearTimeout(this.mouseMoveTimeout)
 
         this.fabVisible = true
+        this.$el.classList.remove('hide-cursor')
 
         this.mouseMoveTimeout = setTimeout(() => {
           this.fabVisible = false
+          this.$el.classList.add('hide-cursor')
         }, 10000)
       }
 
@@ -193,6 +195,10 @@
     text-align: center;
     font-size: 1.3em;
     margin-top: 5px;
+  }
+
+  .hide-cursor {
+    cursor: none;
   }
 
   .save-btn {
