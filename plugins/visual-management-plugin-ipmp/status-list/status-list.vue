@@ -60,22 +60,60 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
   .container {
     position: relative;
     min-height: 100%;
     box-sizing: border-box;
   }
 
-  .container .list {
+  .list {
     box-sizing: border-box;
     overflow-y: hidden;
     position: absolute;
     width: 100%;
     padding: 8px;
+
+    .project {
+      display: flex;
+      align-items: center;
+      height: 60px;
+      border-bottom: 1px solid #FFFFFF;
+
+      .name {
+        flex: 1;
+        margin: 0;
+        font-size: 22px;
+      }
+
+      .counter {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 50px;
+        margin: 0 4px;
+        font-size: 35px;
+        font-weight: 700;
+        background-color: #BBBBBB;
+
+        &.none:not(.inactive) { background-color: #A3A2A2; color: #333333; }
+        &.minor:not(.inactive) { background-color: #FDD835; color: #333333; }
+        &.major:not(.inactive) { background-color: #FB8C00; color: #333333; }
+        &.blocking:not(.inactive) { background-color: #E53935; color: #333333; }
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+      }
+
+    }
+
   }
 
-  .container .tickets-list-container {
+  .tickets-list-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -86,58 +124,33 @@
     height: 100%;
     opacity: .95;
     transition: opacity .5s;
-    background-color: #272E31;
-  }
 
-  .tickets-list-container.hidden {
-    pointer-events: none;
-    opacity: 0;
-  }
+    .tickets-list {
+      margin: 8px;
 
-  .tickets-list-container .close-container {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0 8px 8px 0;
-  }
+      li > a {
+        text-decoration: none;
+      }
 
-  .tickets-list-container .close-container .close {
-    cursor: pointer;
-  }
+    }
 
-  .project {
-    display: flex;
-    align-items: center;
-    height: 60px;
-    border-bottom: 1px solid #FFFFFF;
-  }
+    .close-container {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 8px 8px 0;
 
-  .project .name {
-    flex: 1;
-    margin: 0;
-    font-size: 22px;
-  }
+      .close {
+        cursor: pointer;
+      }
 
-  .project .counter {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 50px;
-    margin: 0 4px;
-    font-size: 35px;
-    font-weight: 700;
-    background-color: #BBBBBB;
-  }
+    }
 
-  .project .counter:last-child {
-    margin-right: 0;
-  }
+    &.hidden {
+      pointer-events: none;
+      opacity: 0;
+    }
 
-  .counter.none:not(.inactive) { background-color: #A3A2A2; color: #333333; }
-  .counter.minor:not(.inactive) { background-color: #FDD835; color: #333333; }
-  .counter.major:not(.inactive) { background-color: #FB8C00; color: #333333; }
-  .counter.blocking:not(.inactive) { background-color: #E53935; color: #333333; }
+  }
 </style>
 
 <script>

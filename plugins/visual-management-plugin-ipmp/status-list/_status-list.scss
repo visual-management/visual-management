@@ -4,6 +4,7 @@
 
 @mixin ipmp-status-list-theme ($theme) {
   $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
 
   .ipmp-plugin.status-list-component {
     background-color: get-color($primary, 500);
@@ -13,6 +14,16 @@
 
       .name {
         color: get-contrast($primary, 500);
+      }
+
+    }
+
+    .tickets-list-container {
+      background-color: rgba(get-color($accent, 300), .95);
+
+      li > a,
+      .close-container {
+        color: get-contrast($accent, 300);
       }
 
     }
