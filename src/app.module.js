@@ -7,8 +7,9 @@ let comps = {
   GridItem: VueGridLayout.GridItem
 }
 
+console.info(`%cLoading plugins`, `color: #37718E;font-weight:bold;`)
 for (let plugin of Plugins) {
-  console.log(`Loading plugin ${plugin.name}`)
+  console.info(`    %c${plugin.name}`, `color: gray;`)
   for (let component of plugin.components) {
     comps[component.tag] = component.vue
   }
