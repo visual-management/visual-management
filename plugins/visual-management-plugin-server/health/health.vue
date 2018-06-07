@@ -1,75 +1,98 @@
 <template>
-  <div class="healths">
-    <div class="everything-is-ok" v-show="urls.length === 0">
-      <img src="../assets/health/ok.svg" />
-    </div>
+  <div class="container">
+    <div class="list">
+      <div
+        class="everything-is-ok"
+        v-show="urls && urls.length === 0"
+      >
+        <img src="../assets/health/ok.svg" />
+      </div>
 
-    <div :class="[ 'health', url.status, { hidden: hidden } ]" v-for="url in urls" @click="goTo(url.url)">
-      <div class="title">{{ url.name }} </div>
-      <img :class="url.status" />
+      <div
+        v-for="url in urls"
+        :class="[ 'health', url.status ]"
+        @click="goTo(url.url)"
+      >
+        <div class="title">{{ url.name }} </div>
+        <img :class="url.status" />
+      </div>
     </div>
   </div>
 </template>
 
-<style scoped>
-  .healths {
-    display: flex;
-    height: 100%;
-    padding: 8px 8px 8px 4px;
+<style lang="scss" scoped>
+  .container {
+    position: relative;
+    min-height: 100%;
     box-sizing: border-box;
   }
 
-  .healths .everything-is-ok {
-    overflow: auto;
+  .list {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    position: absolute;
     height: 100%;
+    width: 100%;
+    padding: 8px 4px;
+
+    .everything-is-ok {
+      overflow: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+
+      & > img {
+        height: 6vw;
+      }
+
+    }
+
+    .health {
+      cursor: pointer;
+      opacity: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 4px;
+      padding: 8px;
+      transition: opacity 1s;
+
+      .title {
+        width: 130px;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      img {
+        height: 55px;
+
+        &.ok { content: url('../assets/health/ok.svg'); }
+        &.ko { content: url('../assets/health/ko.svg'); }
+
+      }
+
+      &.hidden {
+        opacity: 0;
+      }
+
+      &.ok { background-color: #4CAF50; }
+      &.ko { background-color: #F44336; }
+
+    }
+
   }
-
-  .healths .everything-is-ok > img {
-    height: 50%;
-  }
-
-  .health {
-    cursor: pointer;
-    opacity: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 4px;
-    padding: 8px;
-    transition: opacity 1s;
-  }
-
-  .health.hidden {
-    opacity: 0;
-  }
-
-  .health.ok { background-color: #4CAF50; }
-  .health.ko { background-color: #F44336; }
-
-  .health .title {
-    width: 130px;
-    margin-bottom: 15px;
-    text-align: center;
-  }
-
-  .health img {
-    height: 55px;
-  }
-
-  .health img.ok { content: url('../assets/health/ok.svg'); }
-  .health img.ko { content: url('../assets/health/ko.svg'); }
 </style>
 
 <script>
   import Vue from 'vue';
   import VueResource from 'vue-resource';
+  import AsyncComputed from 'vue-async-computed';
 
   Vue.use(VueResource);
+  Vue.use(AsyncComputed);
 
   export default {
 
@@ -86,24 +109,34 @@
 
     data () {
       return {
-        page: 0,
-        pages: 0,
-        hidden: false,
-        allUrls: [],
-        urls: [],
-        paginationIntervalRef: null
+        forceUpdate: 0,
+        pauseScroll: false
       }
     },
 
-    computed: {
-      host () {
-        return (this.config.host.endsWith('/')) ? this.config.host.substring(0, this.config.host.length - 1) : this.config.host;
+    asyncComputed: {
+
+      urls: {
+        get () {
+          return this.update();
+        },
+        watch () {
+          this.forceUpdate
+        },
+        defaults: []
       }
+
     },
 
-    mounted () {
-      setTimeout(this.update, 100); // Wait for the element to be fully displayed
-      setInterval(this.update, this.config.updateInterval);
+    created () {
+      setInterval(() => {
+        // Value has changed, so it will re-fetch projects.
+        this.forceUpdate++;
+      }, this.config.updateInterval);
+    },
+
+    updated () {
+      this.initAutoScroll();
     },
 
     methods: {
@@ -113,97 +146,63 @@
       },
 
       async update () {
-        this.allUrls = [];
+        const urls = [];
 
-        for (const url of this.config.urls) {
-          const urlObj = {
-            name: url.name,
-            url: url.url
-          };
-
+        for (const url of this.config.urls.slice(0)) {
           try {
             await this.$http.get(url.url);
 
-            urlObj.status = 'ok';
+            url.status = 'ok';
           } catch (err) {
-            urlObj.status = 'ko';
+            url.status = 'ko';
           }
 
-          if (this.config.showWorkingUrls || (!this.config.showWorkingUrls && urlObj.status !== 'ok')) {
-            this.allUrls.push(urlObj);
+          if (this.config.showWorkingUrls || (!this.config.showWorkingUrls && url.status !== 'ok')) {
+            urls.push(url);
           }
         }
 
-        // Sort jobs
-        const order = [ 'ko', 'ok' ];
-        this.allUrls.sort((a, b) => order.indexOf(a.status) - order.indexOf(b.status));
-
-        // Calculate the number of pages
-        // Check if the number of pages has changed since the last update
-        const newPages = (this.allUrls.length === 0) ? 0 : Math.ceil(this.allUrls.length / this.howMuchJobsPerPage()) - 1;
-        const pagesChanged = this.pages !== newPages;
-        this.pages = newPages;
-
-        // Paginate jobs
-        this.autoPagination(pagesChanged);
+        return urls;
       },
 
-      howMuchJobsPerPage () {
-        return Math.floor((this.$el.offsetWidth - 8) / 146); // 130px + 4px of margin + 8px of padding for health element width
+      initAutoScroll () {
+        this.$el.querySelector('.list').style.height = this.$el.clientHeight + 'px';
+
+        this.$el.addEventListener('mouseenter', () => this.pauseScroll = true);
+        this.$el.addEventListener('mouseleave', () => this.pauseScroll = false);
+
+        window.requestAnimationFrame(() => this.autoScroll('right'));
       },
 
-      autoPagination (pagesChanged) {
+      autoScroll (direction) {
+        const el = this.$el.querySelector('.list');
+        const scrollDistancePerSecond = 10; // Scroll Xpx every second.
+        const scrollDistancePerAnimationFrame = Math.ceil(scrollDistancePerSecond / 60); // Animate at 60 fps.
 
-        // Do a manual pagination in case there is only 1 page
-        if (this.pages === 0) {
-          this.paginate();
+        if ((el.clientWidth + el.scrollLeft) === el.scrollWidth) {
+          setTimeout(() => {
+            window.requestAnimationFrame(() => this.autoScroll('left'));
+          }, 1000);
+        } else if (el.scrollLeft === 0) {
+          setTimeout(() => {
+            window.requestAnimationFrame(() => this.autoScroll('right'));
+          }, 1000);
+        } else {
+          window.requestAnimationFrame(() => this.autoScroll(direction));
         }
 
-        if (pagesChanged && this.paginationIntervalRef !== null) {
-          clearInterval(this.paginationIntervalRef);
+        if (!this.pauseScroll) {
+          switch (direction) {
+            case 'left':
+              el.scrollLeft -= scrollDistancePerAnimationFrame;
+              break;
+
+            case 'right':
+              el.scrollLeft += scrollDistancePerAnimationFrame;
+              break;
+          }
         }
 
-        // Interval only if their is more than 1 page, otherwise the same page will fadeOut/In every 5 seconds, kind of boring
-        if (pagesChanged && this.pages > 0) {
-          this.paginationIntervalRef = setInterval(this.paginate, 5000);
-        }
-      },
-
-      paginate () {
-        this.fadeOut(() => {
-          this.urls = [];
-
-          const urlsPerPage = this.howMuchJobsPerPage();
-
-          this.urls = this.allUrls.slice(this.page * urlsPerPage, (this.page * urlsPerPage) + urlsPerPage);
-
-          this.page++;
-          if (this.page > this.pages) {
-            this.page = 0;
-          }
-
-          setTimeout(this.fadeIn, 50);
-        });
-      },
-
-      fadeOut (cb) {
-        this.hidden = true;
-
-        setTimeout(() => {
-          if (cb) {
-            cb();
-          }
-        }, 1100);
-      },
-
-      fadeIn (cb) {
-        this.hidden = false;
-
-        setTimeout(() => {
-          if (cb) {
-            cb();
-          }
-        }, 1000);
       }
 
     }

@@ -12,15 +12,25 @@
 
 ### urls
 
-`Array<string>`
+`Array<{url: string, name: string}>`
 
-URLs to watch.
+#### urls.url
+
+`string`
+
+URL to watch.
+
+#### urls.name
+
+`string`
+
+Name of the URL to be displayed.
 
 ### showWorkingUrls
 
 `boolean`, defaults to `false`
 
-If you should show (or not) the URLs in success.
+If you should show (or not) the working URLs.
 
 ### updateInterval
 
