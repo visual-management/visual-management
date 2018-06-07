@@ -3,7 +3,7 @@ import Health from './health/health.vue'
 export default {
   id         : 'server',
   name       : 'Server',
-  description: `Show some information about servers`,
+  description: 'Show some information about servers',
   components : [
     {
       name         : 'Health',
