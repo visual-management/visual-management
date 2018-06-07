@@ -239,7 +239,7 @@
 
     created () {
       setInterval(() => {
-        // Value has changed, so it will refetech projects.
+        // Value has changed, so it will re-fetch projects.
         this.forceUpdate++;
       }, this.config.updateInterval);
     },

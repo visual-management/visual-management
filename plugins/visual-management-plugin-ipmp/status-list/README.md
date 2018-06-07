@@ -40,7 +40,7 @@ Update component info at this time interval.
 
 Choose which criticity should be displayed.
 
-### projects²
+### projects
 
 `Array<{id: number, name: string, ignoreTypes: Array<string>, ignoreStatuses: Array<string>}>`
 
