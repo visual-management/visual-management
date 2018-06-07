@@ -7,7 +7,7 @@ export default {
   components : [
     {
       name         : 'iframe',
-      tag          : 'iframe',
+      tag          : 'plugin-iframe',
       vue          : iframe,
       config       : {
         url: ''
