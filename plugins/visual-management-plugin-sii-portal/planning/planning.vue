@@ -236,7 +236,7 @@
       },
 
       importantUrl () {
-        return `${this.url}/between/${moment().add(2, 'days').format('YYYY-MM-DD')}/${moment().add(this.config.importantEventsDays + 2, 'days').format('YYYY-MM-DD')}`;
+        return `${this.url}/between/${moment().add(2, 'days').format('YYYY-MM-DD')}/${moment().add(this.config.importantEventsDays + 2, 'days').format('YYYY-MM-DD')}?dup=true`;
       },
 
       getUrlFromType (type) {
