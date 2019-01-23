@@ -1,5 +1,6 @@
 import Status from './status/status.vue'
 import StatusList from './status-list/status-list.vue'
+import SLA from './sla/sla.vue'
 
 export default {
   id         : 'ipmp',
@@ -87,6 +88,25 @@ export default {
         updateInterval: 60000
       },
       defaultWidth : 2,
+      defaultHeight: 2
+    },
+    {
+      name         : 'SLA',
+      tag          : 'sla',
+      vue          : SLA,
+      config       : {
+        host          : '',
+        username      : '',
+        password      : '',
+        projects      : [
+          {
+            id                 : 0,
+            hoursBeforeAccepted: 0
+          }
+        ],
+        updateInterval: 60000
+      },
+      defaultWidth : 4,
       defaultHeight: 2
     }
   ]

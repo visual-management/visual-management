@@ -8,6 +8,7 @@
 @import '../../plugins/visual-management-plugin-clock/clock-theme';
 @import '../../plugins/visual-management-plugin-ipmp/status/status';
 @import '../../plugins/visual-management-plugin-ipmp/status-list/status-list';
+@import '../../plugins/visual-management-plugin-ipmp/sla/sla';
 @import '../../plugins/visual-management-plugin-jenkins/job/job';
 @import '../../plugins/visual-management-plugin-jenkins/jobs-list/jobs-list';
 @import '../../plugins/visual-management-plugin-server/health/health-theme';
@@ -24,6 +25,7 @@
   @include clock-theme($theme);
   @include ipmp-status-theme($theme);
   @include ipmp-status-list-theme($theme);
+  @include ipmp-sla-theme($theme);
   @include jenkins-job-theme($theme);
   @include jenkins-jobs-list-theme($theme);
   @include server-health-theme($theme);

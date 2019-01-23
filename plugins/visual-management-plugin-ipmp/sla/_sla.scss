@@ -1,0 +1,14 @@
+//----------------------------------------
+//  SLA - Theme
+//----------------------------------------
+
+@mixin ipmp-sla-theme ($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  .ipmp-plugin.sla-component {
+    background-color: get-color($primary, 500);
+    font-family: map-get($theme, font);
+  }
+
+}
