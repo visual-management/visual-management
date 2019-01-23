@@ -5,6 +5,10 @@
       <span class="name">{{ ticket.name }}</span>
       <span class="time-left">{{ ticket.timeLeft }}h</span>
     </div>
+
+    <div class="everything-is-ok" :hidden="tickets && tickets.length > 0">
+      <img src="../assets/sunny.svg" />
+    </div>
   </div>
 </template>
 
@@ -12,6 +16,15 @@
   .container {
     box-sizing: border-box;
     padding: 8px;
+
+    .everything-is-ok {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
   }
 
   .ticket {
