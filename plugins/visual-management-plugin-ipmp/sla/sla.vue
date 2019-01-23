@@ -15,6 +15,7 @@
 <style lang="scss" scoped>
   .container {
     box-sizing: border-box;
+    height: 100%;
     padding: 8px;
 
     .everything-is-ok {
