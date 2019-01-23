@@ -11,13 +11,14 @@
 <style lang="scss" scoped>
   .container {
     box-sizing: border-box;
-    display: flex;
     padding: 8px;
   }
 
   .ticket {
+    box-sizing: border-box;
     display: flex;
     width: 100%;
+    margin: 0 0 8px;
     padding: 16px 12px;
     border-radius: 2px;
     font-weight: 700;
@@ -30,13 +31,13 @@
       flex: 1;
     }
 
-    .time-left {
-
-    }
-
     &.greater-than-80 { background-color: #8CC04F; color: #333333; }
     &.between-25-and-80 { background-color: #F6B44B; color: #333333; }
     &.lower-than-25 { background-color: #D54C53; color: #333333; }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
   }
 </style>
