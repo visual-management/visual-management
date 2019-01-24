@@ -6,7 +6,7 @@
       <span class="time-left">{{ ticket.timeLeft }}h</span>
     </div>
 
-    <div class="everything-is-ok" v-if="tickets.length === 0">
+    <div class="everything-is-ok" v-if="tickets && tickets.length === 0">
       <img src="../assets/sunny.svg" />
     </div>
   </div>
