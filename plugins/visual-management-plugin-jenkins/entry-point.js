@@ -31,11 +31,11 @@ export default {
         apiToken          : '',
         jobs              : [
           {
-            id: '',
+            id  : '',
             name: ''
           }
         ],
-        showSuccessful    : false,
+        visible           : [ 'ERROR', 'WARNING' ],
         paginationInterval: 5000,
         updateInterval    : 60000
       },

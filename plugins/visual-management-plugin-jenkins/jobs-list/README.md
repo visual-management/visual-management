@@ -34,11 +34,11 @@ Jenkins token for the API. We can use it when an authentication to the API is ne
 
 Jobs information.
 
-### showSuccessful
+### visible
 
-`boolean`, defaults to `false`
+`Array<'ERROR' | 'WARNING' | 'SUCCESSFUL' | 'DISABLED'>'`, defaults to `[ 'ERROR' | 'WARNING' ]`
 
-Whether to show successful builds or not.
+Which builds we want to show up in the list.
 
 ### paginationInterval
 

@@ -165,7 +165,7 @@
           name: String,
           id  : String
         } ],
-        showSuccessful    : Boolean,
+        visible           : Array,
         paginationInterval: Number,
         updateInterval    : Number
       }
@@ -230,8 +230,12 @@
             weather: this.getWeather((body.healthReport && body.healthReport.length > 0) ? body.healthReport[ 0 ].score : 0)
           };
 
-          if (this.config.showSuccessful || (!this.config.showSuccessful && jobObj.color !== 'blue')) {
-
+          if (
+            (this.config.visible.includes('ERROR') && jobObj.color === 'red') ||
+            (this.config.visible.includes('WARNING') && jobObj.color === 'yellow') ||
+            (this.config.visible.includes('SUCCESSFUL') && jobObj.color === 'blue') ||
+            (this.config.visible.includes('DISABLED') && (jobObj.color === 'grey' || jobObj.color === 'disabled' || jobObj.color === 'aborted' || jobObj.color === 'notbuilt'))
+          ) {
             if (body.lastBuild) {
               let buildRes = await this.getBuild(body.lastBuild.url);
 
