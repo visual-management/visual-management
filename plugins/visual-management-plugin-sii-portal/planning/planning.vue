@@ -274,7 +274,7 @@
         if (event.end) {
           const endDateSplit = event.end.split(':');
 
-          startDate.hours(endDateSplit[0]).minutes(endDateSplit[1]);
+          endDate.hours(endDateSplit[0]).minutes(endDateSplit[1]);
         }
 
         return [
