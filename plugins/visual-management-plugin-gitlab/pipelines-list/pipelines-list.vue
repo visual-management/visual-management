@@ -308,9 +308,9 @@
       },
 
       // Add an importance to a job status.
-      // failed > canceled > skipped > success > manual
+      // running > canceled > failed > skipped > success > manual
       getStageStatus(stage, newStatus) {
-        const importance = [ 'failed', 'canceled', 'skipped', 'success', 'manual' ];
+        const importance = [ 'running', 'canceled', 'failed', 'skipped', 'success', 'manual' ];
         const newStatusImportance = importance[ newStatus ];
         const currentStatusImportance = importance[ stage.status ];
 
