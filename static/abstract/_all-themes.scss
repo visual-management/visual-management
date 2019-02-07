@@ -6,6 +6,7 @@
 @import '../components/button-theme';
 @import '../components/modal-theme';
 @import '../../plugins/visual-management-plugin-clock/clock-theme';
+@import '../../plugins/visual-management-plugin-gitlab/pipelines-list/pipelines-list';
 @import '../../plugins/visual-management-plugin-ipmp/status/status';
 @import '../../plugins/visual-management-plugin-ipmp/status-list/status-list';
 @import '../../plugins/visual-management-plugin-ipmp/sla/sla';
@@ -23,6 +24,7 @@
   @include button-theme($theme);
   @include modal-theme($theme);
   @include clock-theme($theme);
+  @include gitlab-pipelines-list-theme($theme);
   @include ipmp-status-theme($theme);
   @include ipmp-status-list-theme($theme);
   @include ipmp-sla-theme($theme);

@@ -1,0 +1,14 @@
+{
+  "name": "@visual-management/plugin-gitlab",
+  "version": "1.0.0",
+  "description": "A set of components for GitLab",
+  "main": "./entry-point.js",
+  "license": "MIT",
+  "contributors": [
+    "Valentin Got <gotvalentin@gmail.com>"
+  ],
+  "repository": "https://github.com/visual-management/tree/master/plugins/visual-management-plugin-gitlab",
+  "peerDependencies": {
+    "vue": "^2.2.6"
+  }
+}

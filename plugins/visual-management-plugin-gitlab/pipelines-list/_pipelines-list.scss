@@ -1,0 +1,13 @@
+//----------------------------------------
+//  Pipelines list - Theme
+//----------------------------------------
+
+@mixin gitlab-pipelines-list-theme ($theme) {
+  $primary: map-get($theme, primary);
+
+  .gitlab-plugin.pipelines-list-component {
+    background-color: get-color($primary, 500);
+    font-family: map-get($theme, font);
+  }
+
+}
