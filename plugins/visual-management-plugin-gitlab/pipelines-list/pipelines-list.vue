@@ -311,8 +311,8 @@
       // running > canceled > failed > skipped > success > manual
       getStageStatus(stage, newStatus) {
         const importance = [ 'running', 'canceled', 'failed', 'skipped', 'success', 'manual' ];
-        const newStatusImportance = importance[ newStatus ];
-        const currentStatusImportance = importance[ stage.status ];
+        const newStatusImportance = importance.indexOf(newStatus);
+        const currentStatusImportance = importance.indexOf(stage.status);
 
         return (currentStatusImportance > newStatusImportance) ? newStatus : stage.status;
       },
