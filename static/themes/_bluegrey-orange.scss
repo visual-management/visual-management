@@ -1,0 +1,78 @@
+//----------------------------------------
+//  Theme - Pink BlueGrey
+//----------------------------------------
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+@import '../abstract/theming';
+@import '../abstract/all-themes';
+
+//----------------------------------------
+
+body {
+  background-color: #F0F0F0;
+}
+
+$primary: (
+  50: #ecedee,
+  100: #cfd1d5,
+  200: #afb2b9,
+  300: #8e939c,
+  400: #767c87,
+  500: #5e6572,
+  600: #565d6a,
+  700: #4c535f,
+  800: #424955,
+  900: #313742,
+  A100: #93bcff,
+  A200: #609cff,
+  A400: #2e7cff,
+  A700: #146cff,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text
+  )
+);
+
+$accent: (
+  50: #FBE9E7,
+  100: #FFCCBC,
+  200: #FFAB91,
+  300: #FF8A65,
+  400: #FF7043,
+  500: #FF5722,
+  600: #F4511E,
+  700: #E64A19,
+  800: #D84315,
+  900: #BF360C,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text
+  )
+);
+
+// Floating action button
+$main-color: get-color($accent, 500);
+$bright-text: get-contrast($accent, 500);
+
+$default-font-family: 'Roboto Mono', 'Roboto', sans-serif;
+
+// Create the theme object (a Sass map containing all oF the palettes).
+$pink-bluegrey-theme: create-theme($primary, $accent, $default-font-family);
+
+// Include theme styles for core and each component used in your app.
+@include visual-management-theme($pink-bluegrey-theme);
