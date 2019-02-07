@@ -13,7 +13,8 @@
       :class="[ project.status , { hidden: hidden } ]"
       v-for="project in projects"
     >
-      <img :src="project.avatarUrl" class="avatar" alt="Avatar"/>
+      <img src="../assets/default-avatar.png" class="avatar" alt="Avatar" v-if="!project.avatarUrl" />
+      <img :src="project.avatarUrl" class="avatar" alt="Avatar" v-if="project.avatarUrl" />
 
       <h4>{{ project.name }}</h4>
 
@@ -258,7 +259,7 @@
               this.allProjects.push({
                 status   : pipeline.status,
                 url      : pipeline.web_url,
-                avatarUrl: jobs[ 0 ].user.avatar_url,
+                avatarUrl: (jobs[0] && jobs[0].user) ? jobs[0].user.avatar_url : null,
                 name     : project.name,
                 ref      : pipeline.ref,
                 stages   : this.getStages(jobs)
