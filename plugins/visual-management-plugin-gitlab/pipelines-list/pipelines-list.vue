@@ -35,6 +35,7 @@
           <img src="../assets/created.svg" :alt="stage.status" v-if="stage.status === 'created'"/>
           <img src="../assets/canceled.svg" :alt="stage.status" v-if="stage.status === 'canceled'"/>
           <img src="../assets/skipped.svg" :alt="stage.status" v-if="stage.status === 'skipped'"/>
+          <img src="../assets/skipped.svg" :alt="stage.status" v-if="stage.status === 'manual'"/>
           <img src="../assets/failed.svg" :alt="stage.status" v-if="stage.status === 'failed'"/>
         </div>
       </div>
@@ -148,6 +149,7 @@
           &.running { background-color: darken($running-color, 15%); }
           &.canceled { background-color: darken($canceled-color, 15%); }
           &.skipped { background-color: darken($skipped-color, 15%); }
+          &.manual { background-color: darken($skipped-color, 15%); }
           &.created { background-color: darken($created-color, 15%); }
           &.failed { background-color: darken($failed-color, 15%); }
 
