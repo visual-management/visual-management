@@ -1,7 +1,9 @@
 //----------------------------------------
-//  Theme - Pink BlueGrey
+//  Theme - BlueGrey / Deep orange
 //----------------------------------------
+
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
 @import '../abstract/theming';
 @import '../abstract/all-themes';
 
@@ -12,20 +14,20 @@ body {
 }
 
 $primary: (
-  50: #ecedee,
-  100: #cfd1d5,
-  200: #afb2b9,
-  300: #8e939c,
-  400: #767c87,
-  500: #5e6572,
-  600: #565d6a,
-  700: #4c535f,
-  800: #424955,
-  900: #313742,
-  A100: #93bcff,
-  A200: #609cff,
-  A400: #2e7cff,
-  A700: #146cff,
+  50: #EFF2F3,
+  100: #D7DEE1,
+  200: #BCC8CE,
+  300: #A1B1BA,
+  400: #8CA1AB,
+  500: #78909C,
+  600: #708894,
+  700: #657D8A,
+  800: #5B7380,
+  900: #48616E,
+  A100: #CDEDFF,
+  A200: #9ADBFF,
+  A400: #67C8FF,
+  A700: #4DBFFF,
   contrast: (
     50: $dark-primary-text,
     100: $dark-primary-text,
