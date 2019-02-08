@@ -135,8 +135,10 @@
       }, this.config.updateInterval);
     },
 
-    updated () {
-      this.initAutoScroll();
+    mounted () {
+      setTimeout(() => {
+        this.initAutoScroll();
+      });
     },
 
     methods: {
