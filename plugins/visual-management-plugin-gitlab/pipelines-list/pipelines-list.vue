@@ -274,8 +274,8 @@
 
         this.projects = this.allProjects;
 
-        // // Calculate the number of pages
-        // // Check if the number of pages has changed since the last update
+        // Calculate the number of pages
+        // Check if the number of pages has changed since the last update
         const newPages = (this.allProjects.length === 0) ? 0 : Math.ceil(this.allProjects.length / this.howMuchJobsPerPage()) - 1;
         const pagesChanged = this.pages !== newPages;
         this.pages = newPages;
