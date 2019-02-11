@@ -1,29 +1,40 @@
 <template>
   <div class="container">
-    <div class="ticket" :class="[ ticket.remainingTimeArea ]" v-for="ticket in tickets">
-      <span class="id">#{{ ticket.id }} - </span>
-      <span class="name">{{ ticket.name }}</span>
-      <span class="time-left">{{ ticket.timeLeft }}h</span>
-    </div>
+    <div class="list">
+      <div class="ticket" :class="[ ticket.remainingTimeArea ]" v-for="ticket in tickets">
+        <span class="id">#{{ ticket.id }} - </span>
+        <span class="name">{{ ticket.name }}</span>
+        <span class="time-left">{{ ticket.timeLeft }}h</span>
+      </div>
 
-    <div class="everything-is-ok" v-if="tickets && tickets.length === 0">
-      <img src="../assets/sunny.svg" />
+      <div class="everything-is-ok" v-if="tickets && tickets.length === 0">
+        <img src="../assets/sunny.svg" />
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
   .container {
+    position: relative;
+    min-height: 100%;
     box-sizing: border-box;
-    height: 100%;
-    padding: 8px;
 
-    .everything-is-ok {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
+    .list {
+      box-sizing: border-box;
+      overflow-y: hidden;
+      position: absolute;
+      width: 100%;
+      padding: 12px;
+
+      .everything-is-ok {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+
     }
 
   }
@@ -130,6 +141,12 @@
       }, this.config.updateInterval);
     },
 
+    mounted () {
+      setTimeout(() => {
+        this.initAutoScroll();
+      });
+    },
+
     asyncComputed: {
 
       tickets: {
@@ -208,6 +225,46 @@
         } else {
           return 'lower-than-25';
         }
+      },
+
+      initAutoScroll () {
+        this.$el.querySelector('.list').style.height = this.$el.clientHeight + 'px';
+
+        this.$el.addEventListener('mouseenter', () => this.pauseScroll = true);
+        this.$el.addEventListener('mouseleave', () => this.pauseScroll = false);
+
+        window.requestAnimationFrame(() => this.autoScroll('down'));
+      },
+
+      autoScroll (direction) {
+        const el = this.$el.querySelector('.list');
+        const scrollDistancePerSecond = 10; // Scroll Xpx every second.
+        const scrollDistancePerAnimationFrame = Math.ceil(scrollDistancePerSecond / 60); // Animate at 60 fps.
+
+        if ((el.clientHeight + el.scrollTop) === el.scrollHeight) {
+          setTimeout(() => {
+            window.requestAnimationFrame(() => this.autoScroll('up'));
+          }, 1000);
+        } else if (el.scrollTop === 0) {
+          setTimeout(() => {
+            window.requestAnimationFrame(() => this.autoScroll('down'));
+          }, 1000);
+        } else {
+          window.requestAnimationFrame(() => this.autoScroll(direction));
+        }
+
+        if (!this.pauseScroll) {
+          switch (direction) {
+            case 'up':
+              el.scrollTop -= scrollDistancePerAnimationFrame;
+              break;
+
+            case 'down':
+              el.scrollTop += scrollDistancePerAnimationFrame;
+              break;
+          }
+        }
+
       }
 
     }
