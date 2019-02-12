@@ -56,6 +56,10 @@
       flex: 1;
     }
 
+    .time-left {
+      margin-left: 8px;
+    }
+
     &.greater-than-80 { background-color: #8CC04F; color: #333333; }
     &.between-25-and-80 { background-color: #F6B44B; color: #333333; }
     &.lower-than-25 { background-color: #D54C53; color: #333333; }
@@ -212,10 +216,6 @@
       },
 
       getRemainingTimeArea (timeLeftInHours, projectHoursBeforeAccepted) {
-        if (timeLeftInHours <= 0) {
-          return 'time-exceeded';
-        }
-
         const percentage = (timeLeftInHours / projectHoursBeforeAccepted) * 100;
 
         if (percentage >= 80) {
