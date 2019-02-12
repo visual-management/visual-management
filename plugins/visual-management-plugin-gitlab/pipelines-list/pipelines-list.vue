@@ -7,6 +7,12 @@
     </div>
 
     <a
+      class="project specimen"
+      :hidden="specimenHidden">
+      <h4>Specimen</h4>
+    </a>
+
+    <a
       class="project"
       target="_blank"
       :href="project.url"
@@ -214,7 +220,9 @@
         hidden               : false,
         allProjects          : [],
         projects             : [],
-        paginationIntervalRef: null
+        paginationIntervalRef: null,
+        specimenHeight       : 0,
+        specimenHidden       : false
       }
     },
 
@@ -241,7 +249,11 @@
     },
 
     mounted() {
-      this.update();
+      // Retrieve the specimen height to know how much jobs we can show
+      this.specimenHeight = this.$el.querySelector('.project.specimen').offsetHeight;
+      this.specimenHidden = true;
+
+      setTimeout(this.update, 100); // Wait for the element to be fully displayed
       setInterval(this.update, this.config.updateInterval);
     },
 
@@ -271,8 +283,6 @@
             }
           }
         }
-
-        this.projects = this.allProjects;
 
         // Calculate the number of pages
         // Check if the number of pages has changed since the last update
@@ -320,8 +330,7 @@
       },
 
       howMuchJobsPerPage() {
-        // 50: project height
-        return Math.floor(this.$el.offsetHeight / 50);
+        return Math.floor(this.$el.offsetHeight / this.specimenHeight);
       },
 
       autoPagination(pagesChanged) {
