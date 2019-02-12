@@ -271,14 +271,16 @@
             if (projectRefs.includes(pipeline.ref)) {
               const jobs = (await this.$http.get(this.fetchJobs(project.id, pipeline.id), this.httpOptions)).body;
 
-              this.allProjects.push({
-                status   : pipeline.status,
-                url      : pipeline.web_url,
-                avatarUrl: (jobs[0] && jobs[0].user) ? jobs[0].user.avatar_url : null,
-                name     : project.name,
-                ref      : pipeline.ref,
-                stages   : this.getStages(jobs)
-              });
+              if (this.config.visible.includes(pipeline.status.toUpperCase())) {
+                this.allProjects.push({
+                  status   : pipeline.status,
+                  url      : pipeline.web_url,
+                  avatarUrl: (jobs[ 0 ] && jobs[ 0 ].user) ? jobs[ 0 ].user.avatar_url : null,
+                  name     : project.name,
+                  ref      : pipeline.ref,
+                  stages   : this.getStages(jobs)
+                });
+              }
 
               projectRefs.splice(projectRefs.indexOf(pipeline.ref), 1);
             }

@@ -19,6 +19,7 @@ export default {
             refs: []
           }
         ],
+        visible: [ "SUCCESS", "RUNNING", "CANCELED", "FAILED" ],
         paginationInterval: 5000,
         updateInterval    : 60000
       },

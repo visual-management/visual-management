@@ -44,6 +44,12 @@ The name to be shown.
 
 The name to be shown.
 
+### visible
+
+`Array<'SUCCESS' | 'RUNNING' | 'CANCELED' | 'FAILED'>`, defaults to `[ "SUCCESS", "RUNNING", "CANCELED", "FAILED" ]`
+
+Show the pipelines depending on their state.
+
 ### paginationInterval
 
 `number` (in milliseconds), defaults to `5000`
