@@ -250,7 +250,7 @@
 
     mounted() {
       // Retrieve the specimen height to know how much jobs we can show
-      this.specimenHeight = this.$el.querySelector('.project.specimen').offsetHeight;
+      this.specimenHeight = this.$el.querySelector('.project.specimen').offsetHeight + 8; // 8: margin bottom;
       this.specimenHidden = true;
 
       setTimeout(this.update, 100); // Wait for the element to be fully displayed
