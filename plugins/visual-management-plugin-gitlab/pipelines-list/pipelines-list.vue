@@ -8,7 +8,8 @@
 
     <a
       class="project specimen"
-      :hidden="specimenHidden">
+      :hidden="specimenHidden"
+    >
       <h4>Specimen</h4>
     </a>
 
