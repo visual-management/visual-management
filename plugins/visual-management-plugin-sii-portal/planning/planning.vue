@@ -256,10 +256,10 @@
 
         // Next day of week
         let date;
-        if (moment().isoWeekday() <= event.dow[0]) {
-          date = moment().isoWeekday(event.dow[0]);
+        if (moment().isoWeekday() <= event.daysOfWeek[0].day) {
+          date = moment().isoWeekday(event.daysOfWeek[0].day);
         } else {
-          date = moment().add(1, 'weeks').isoWeekday(event.dow[0]);
+          date = moment().add(1, 'weeks').isoWeekday(event.daysOfWeek[0].day);
         }
 
         const startDate = date.clone().hours(0).minutes(0).seconds(0);
